@@ -17,19 +17,13 @@ namespace Materialempfehlung.Context
 
         }
 
-        public MaterialempfehlungContext(string connectionString)
-            : base(new DbContextOptionsBuilder().UseSqlServer(connectionString).Options)
-        {
-            
-        }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var configurationBuilder = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json")
              .Build();
             var settings = configurationBuilder?.GetRequiredSection("Settings")?.Get<Settings>();
-            optionsBuilder.UseSqlServer(settings.TestConnectionString ?? string.Empty);
+            optionsBuilder.UseSqlServer(settings?.TestConnectionString ?? string.Empty);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -69,26 +63,28 @@ namespace Materialempfehlung.Context
             .ToTable("MEL_Oberfläche_Zustände");
         }
 
-        DbSet<Äußerer_Einfluss> Äußere_Einflüsse { get;  set; }
+        public DbSet<Äußerer_Einfluss> Äußere_Einflüsse { get;  set; }
 
-        DbSet<Bedingung> Bedingungen { get; set; }
+        public DbSet<Bedingung> Bedingungen { get; set; }
 
-        DbSet<Besonderheit> Besonderheiten { get; set; }
+        public DbSet<Besonderheit> Besonderheiten { get; set; }
 
-        DbSet<Druckverfahren> Druckverfahren { get; set; }
+        public DbSet<Druckverfahren> Druckverfahren { get; set; }
 
-        DbSet<Kategorie> Kategorien { get; set; }
+        public DbSet<Kategorie> Kategorien { get; set; }
 
-        DbSet<Klebstoff> Klebstoffe { get; set; }
+        public DbSet<Klebstoff> Klebstoffe { get; set; }
 
-        DbSet<Oberfläche> Oberflächen { get; set; }
+        public DbSet<Oberfläche> Oberflächen { get; set; }
 
-        DbSet<Oberfläche_Beschaffenheit> Oberfläche_Beschaffenheiten { get; set; }
+        public DbSet<Oberfläche_Beschaffenheit> Oberfläche_Beschaffenheiten { get; set; }
 
-        DbSet<Oberfläche_Farbe> Oberfläche_Farben { get; set; }
+        public DbSet<Oberfläche_Farbe> Oberfläche_Farben { get; set; }
 
-        DbSet<Oberfläche_Form> Oberfläche_Formen { get; set; }
+        public DbSet<Oberfläche_Form> Oberfläche_Formen { get; set; }
 
-        DbSet<Oberfläche_Zustand> Oberfläche_Zustände { get; set; }
+        public DbSet<Oberfläche_Zustand> Oberfläche_Zustände { get; set; }
+
+        public DbSet<Veredelung> Veredelungen { get; set; }
     }
 }
