@@ -76,6 +76,15 @@
             groupBoxInformationen.SuspendLayout();
             SuspendLayout();
             // 
+            // labelBesonderheiten
+            // 
+            labelBesonderheiten.AutoSize = true;
+            labelBesonderheiten.Location = new Point(9, 181);
+            labelBesonderheiten.Name = "labelBesonderheiten";
+            labelBesonderheiten.Size = new Size(89, 15);
+            labelBesonderheiten.TabIndex = 2;
+            labelBesonderheiten.Text = "Besonderheiten";
+            // 
             // textBoxVeredelung
             // 
             textBoxVeredelung.Location = new Point(443, 110);
@@ -246,7 +255,7 @@
             groupBoxEmpfehlungen.Dock = DockStyle.Fill;
             groupBoxEmpfehlungen.Location = new Point(0, 0);
             groupBoxEmpfehlungen.Name = "groupBoxEmpfehlungen";
-            groupBoxEmpfehlungen.Size = new Size(946, 401);
+            groupBoxEmpfehlungen.Size = new Size(945, 420);
             groupBoxEmpfehlungen.TabIndex = 0;
             groupBoxEmpfehlungen.TabStop = false;
             groupBoxEmpfehlungen.Text = "Empfehlungen";
@@ -287,15 +296,6 @@
             labelDruckverfahren.TabIndex = 3;
             labelDruckverfahren.Text = "Druckverfahren";
             // 
-            // labelBesonderheiten
-            // 
-            labelBesonderheiten.AutoSize = true;
-            labelBesonderheiten.Location = new Point(9, 181);
-            labelBesonderheiten.Name = "labelBesonderheiten";
-            labelBesonderheiten.Size = new Size(89, 15);
-            labelBesonderheiten.TabIndex = 2;
-            labelBesonderheiten.Text = "Besonderheiten";
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -328,8 +328,8 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(groupBoxEmpfehlungen);
-            splitContainer1.Size = new Size(946, 577);
-            splitContainer1.SplitterDistance = 172;
+            splitContainer1.Size = new Size(945, 604);
+            splitContainer1.SplitterDistance = 180;
             splitContainer1.TabIndex = 1;
             // 
             // groupBoxInformationen
@@ -349,7 +349,7 @@
             groupBoxInformationen.Dock = DockStyle.Fill;
             groupBoxInformationen.Location = new Point(0, 0);
             groupBoxInformationen.Name = "groupBoxInformationen";
-            groupBoxInformationen.Size = new Size(946, 172);
+            groupBoxInformationen.Size = new Size(945, 180);
             groupBoxInformationen.TabIndex = 0;
             groupBoxInformationen.TabStop = false;
             groupBoxInformationen.Text = "Allgemeine Informationen";
@@ -458,7 +458,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(splitContainer1);
             Name = "Materialübersicht";
-            Size = new Size(946, 577);
+            Size = new Size(945, 604);
             groupBoxEmpfehlungen.ResumeLayout(false);
             groupBoxEmpfehlungen.PerformLayout();
             splitContainer1.Panel1.ResumeLayout(false);

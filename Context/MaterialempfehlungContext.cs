@@ -63,6 +63,8 @@ namespace Materialempfehlung.Context
             .ToTable("MEL_Oberfläche_Zustände");
         }
 
+        public DbSet<Material> Materialien { get; set; }
+
         public DbSet<Äußerer_Einfluss> Äußere_Einflüsse { get;  set; }
 
         public DbSet<Bedingung> Bedingungen { get; set; }

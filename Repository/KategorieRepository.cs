@@ -19,26 +19,44 @@ namespace Materialempfehlung.Repository
 
         public List<Kategorie> GetAll()
         {
-            //ToDo implement
-            return new List<Kategorie>();
+            return _context.Kategorien.ToList();
         }
 
-        public Kategorie Add(Kategorie item)
+        public Kategorie? Add(Kategorie item)
         {
-            //ToDo implement
-            return new Kategorie();
+            _context.Kategorien.Add(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return item;
+            }
+
+            return null;
         }
 
-        public Kategorie Update(Kategorie item)
+        public Kategorie? Update(Kategorie item)
         {
-            //ToDo implement
-            return new Kategorie();
+            _context.Kategorien.Update(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return item;
+            }
+
+            return null;
         }
 
         public bool Delete(int id)
         {
-            //ToDo implement
-            return true;
+            var item = _context.Kategorien.Where(o => o.Id == id);
+            _context.Remove(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

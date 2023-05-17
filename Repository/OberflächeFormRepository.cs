@@ -19,26 +19,44 @@ namespace Materialempfehlung.Repository
 
         public List<Oberfläche_Form> GetAll()
         {
-            //ToDo implement
-            return new List<Oberfläche_Form>();
+            return _context.Oberfläche_Formen.ToList();
         }
 
-        public Oberfläche_Form Add(Oberfläche_Form item)
+        public Oberfläche_Form? Add(Oberfläche_Form item)
         {
-            //ToDo implement
-            return new Oberfläche_Form();
+            _context.Oberfläche_Formen.Add(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return item;
+            }
+
+            return null;
         }
 
-        public Oberfläche_Form Update(Oberfläche_Form item)
+        public Oberfläche_Form? Update(Oberfläche_Form item)
         {
-            //ToDo implement
-            return new Oberfläche_Form();
+            _context.Oberfläche_Formen.Update(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return item;
+            }
+
+            return null;
         }
 
         public bool Delete(int id)
         {
-            //ToDo implement
-            return true;
+            var item = _context.Oberfläche_Formen.Where(o => o.Id == id);
+            _context.Remove(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

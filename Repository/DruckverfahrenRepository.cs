@@ -19,26 +19,44 @@ namespace Materialempfehlung.Repository
 
         public List<Druckverfahren> GetAll()
         {
-            //ToDo implement
-            return new List<Druckverfahren>();
+            return _context.Druckverfahren.ToList();
         }
 
-        public Druckverfahren Add(Druckverfahren item)
+        public Druckverfahren? Add(Druckverfahren item)
         {
-            //ToDo implement
-            return new Druckverfahren();
+            _context.Druckverfahren.Add(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return item;
+            }
+
+            return null;
         }
 
-        public Druckverfahren Update(Druckverfahren item)
+        public Druckverfahren? Update(Druckverfahren item)
         {
-            //ToDo implement
-            return new Druckverfahren();
+            _context.Druckverfahren.Update(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return item;
+            }
+
+            return null;
         }
 
         public bool Delete(int id)
         {
-            //ToDo implement
-            return true;
+            var item = _context.Druckverfahren.Where(o => o.Id == id);
+            _context.Remove(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

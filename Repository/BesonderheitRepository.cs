@@ -19,26 +19,44 @@ namespace Materialempfehlung.Repository
 
         public List<Besonderheit> GetAll()
         {
-            //ToDo implement
-            return new List<Besonderheit>();
+            return _context.Besonderheiten.ToList();
         }
 
-        public Besonderheit Add(Besonderheit item)
+        public Besonderheit? Add(Besonderheit item)
         {
-            //ToDo implement
-            return new Besonderheit();
+            _context.Besonderheiten.Add(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return item;
+            }
+
+            return null;
         }
 
-        public Besonderheit Update(Besonderheit item)
+        public Besonderheit? Update(Besonderheit item)
         {
-            //ToDo implement
-            return new Besonderheit();
+            _context.Besonderheiten.Update(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return item;
+            }
+
+            return null;
         }
 
         public bool Delete(int id)
         {
-            //ToDo implement
-            return true;
+            var item = _context.Besonderheiten.Where(o => o.Id == id);
+            _context.Remove(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

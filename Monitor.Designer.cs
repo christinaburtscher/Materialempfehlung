@@ -30,7 +30,7 @@
         {
             splitContainer1 = new SplitContainer();
             groupBoxSuche = new GroupBox();
-            button1 = new Button();
+            buttonBereichSuche = new Button();
             label1 = new Label();
             comboBoxBereiche = new ComboBox();
             buttonSuche = new Button();
@@ -58,13 +58,13 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(groupBoxÜbersicht);
-            splitContainer1.Size = new Size(983, 611);
-            splitContainer1.SplitterDistance = 85;
+            splitContainer1.Size = new Size(1024, 670);
+            splitContainer1.SplitterDistance = 93;
             splitContainer1.TabIndex = 0;
             // 
             // groupBoxSuche
             // 
-            groupBoxSuche.Controls.Add(button1);
+            groupBoxSuche.Controls.Add(buttonBereichSuche);
             groupBoxSuche.Controls.Add(label1);
             groupBoxSuche.Controls.Add(comboBoxBereiche);
             groupBoxSuche.Controls.Add(buttonSuche);
@@ -73,30 +73,30 @@
             groupBoxSuche.Dock = DockStyle.Fill;
             groupBoxSuche.Location = new Point(0, 0);
             groupBoxSuche.Name = "groupBoxSuche";
-            groupBoxSuche.Size = new Size(983, 85);
+            groupBoxSuche.Size = new Size(1024, 93);
             groupBoxSuche.TabIndex = 0;
             groupBoxSuche.TabStop = false;
             groupBoxSuche.Text = "Suche";
             // 
-            // button1
+            // buttonBereichSuche
             // 
-            button1.BackColor = Color.DarkOrange;
-            button1.BackgroundImageLayout = ImageLayout.None;
-            button1.Cursor = Cursors.IBeam;
-            button1.FlatAppearance.BorderColor = Color.DarkOrange;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.Window;
-            button1.Location = new Point(609, 9);
-            button1.Margin = new Padding(0);
-            button1.Name = "button1";
-            button1.RightToLeft = RightToLeft.Yes;
-            button1.Size = new Size(99, 51);
-            button1.TabIndex = 6;
-            button1.Text = "Bereiche Suche";
-            button1.TextAlign = ContentAlignment.BottomCenter;
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += Button1_Click;
+            buttonBereichSuche.BackColor = Color.DarkOrange;
+            buttonBereichSuche.BackgroundImageLayout = ImageLayout.None;
+            buttonBereichSuche.Cursor = Cursors.IBeam;
+            buttonBereichSuche.FlatAppearance.BorderColor = Color.DarkOrange;
+            buttonBereichSuche.FlatAppearance.BorderSize = 0;
+            buttonBereichSuche.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonBereichSuche.ForeColor = SystemColors.Window;
+            buttonBereichSuche.Location = new Point(609, 9);
+            buttonBereichSuche.Margin = new Padding(0);
+            buttonBereichSuche.Name = "buttonBereichSuche";
+            buttonBereichSuche.RightToLeft = RightToLeft.Yes;
+            buttonBereichSuche.Size = new Size(99, 51);
+            buttonBereichSuche.TabIndex = 6;
+            buttonBereichSuche.Text = "Bereiche Suche";
+            buttonBereichSuche.TextAlign = ContentAlignment.BottomCenter;
+            buttonBereichSuche.UseVisualStyleBackColor = false;
+            buttonBereichSuche.Click += Button1_Click;
             // 
             // label1
             // 
@@ -158,18 +158,18 @@
             groupBoxÜbersicht.Dock = DockStyle.Fill;
             groupBoxÜbersicht.Location = new Point(0, 0);
             groupBoxÜbersicht.Name = "groupBoxÜbersicht";
-            groupBoxÜbersicht.Size = new Size(983, 522);
+            groupBoxÜbersicht.Size = new Size(1024, 573);
             groupBoxÜbersicht.TabIndex = 0;
             groupBoxÜbersicht.TabStop = false;
             groupBoxÜbersicht.Text = "Übersicht";
             // 
-            // Form
+            // Monitor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(983, 611);
+            ClientSize = new Size(1024, 670);
             Controls.Add(splitContainer1);
-            Name = "Form";
+            Name = "Monitor";
             Text = "Materialempfehlung";
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
@@ -185,7 +185,7 @@
         private SplitContainer splitContainer1;
         private GroupBox groupBoxSuche;
         private GroupBox groupBoxÜbersicht;
-        private Button button1;
+        private Button buttonBereichSuche;
         private Label label1;
         private ComboBox comboBoxBereiche;
         private Button buttonSuche;

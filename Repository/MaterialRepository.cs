@@ -17,16 +17,14 @@ namespace Materialempfehlung.Datenbank
             _context = context;
         }
 
-        public Material GetByArtikelnummer(string artikelnummer) 
+        public Material? GetByArtikelnummer(string artikelnummer) 
         {
-            //ToDo implement
-            return new Material();       
+            return _context.Materialien.Where(o => o.Artikelnummer_Carini == artikelnummer).FirstOrDefault();           
         }
 
         public List<Material> GetAll()
         { 
-            //ToDo implement
-            return new List<Material>();
+            return _context.Materialien.ToList();
         }
 
         public List<Material> GetByBereich(string bereich, string feld)
@@ -35,22 +33,41 @@ namespace Materialempfehlung.Datenbank
             return new List<Material>();
         }
 
-        public bool Add(Material material) 
+        public Material? Add(Material item) 
         {
-            //ToDo implement
-            return true;
+            _context.Materialien.Add(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return item;
+            }
+
+            return null;
         }
 
-        public Material Update(Material material) 
+        public Material? Update(Material item) 
         {
-            //ToDo implement
-            return new Material();
+            _context.Materialien.Update(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return item;
+            }
+
+            return null;
         }
 
         public bool Delete(int id) 
         {
-            //ToDo implement
-            return true;
+            var item = _context.Materialien.Where(o => o.Id == id);
+            _context.Remove(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

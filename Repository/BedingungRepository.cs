@@ -19,26 +19,44 @@ namespace Materialempfehlung.Repository
 
         public List<Bedingung> GetAll()
         {
-            //ToDo implement
-            return new List<Bedingung>();
+            return _context.Bedingungen.ToList();
         }
 
-        public Bedingung Add(Bedingung item)
+        public Bedingung? Add(Bedingung item)
         {
-            //ToDo implement
-            return new Bedingung();
+            _context.Bedingungen.Add(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return item;
+            }
+
+            return null;
         }
 
-        public Bedingung Update(Bedingung item)
+        public Bedingung? Update(Bedingung item)
         {
-            //ToDo implement
-            return new Bedingung();
+            _context.Bedingungen.Update(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return item;
+            }
+
+            return null;
         }
 
         public bool Delete(int id)
         {
-            //ToDo implement
-            return true;
+            var item = _context.Bedingungen.Where(o => o.Id == id);
+            _context.Remove(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

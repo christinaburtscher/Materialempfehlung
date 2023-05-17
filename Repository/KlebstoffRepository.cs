@@ -19,26 +19,44 @@ namespace Materialempfehlung.Repository
 
         public List<Klebstoff> GetAll()
         {
-            //ToDo implement
-            return new List<Klebstoff>();
+            return _context.Klebstoffe.ToList();
         }
 
-        public Klebstoff Add(Klebstoff item)
+        public Klebstoff? Add(Klebstoff item)
         {
-            //ToDo implement
-            return new Klebstoff();
+            _context.Klebstoffe.Add(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return item;
+            }
+
+            return null;
         }
 
-        public Klebstoff Update(Klebstoff item)
+        public Klebstoff? Update(Klebstoff item)
         {
-            //ToDo implement
-            return new Klebstoff();
+            _context.Klebstoffe.Update(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return item;
+            }
+
+            return null;
         }
 
         public bool Delete(int id)
         {
-            //ToDo implement
-            return true;
+            var item = _context.Klebstoffe.Where(o => o.Id == id);
+            _context.Remove(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

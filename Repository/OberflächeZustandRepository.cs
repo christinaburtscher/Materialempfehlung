@@ -24,26 +24,44 @@ namespace Materialempfehlung.Repository
 
         public List<Oberfläche_Zustand> GetAll()
         {
-            //ToDo implement
-            return new List<Oberfläche_Zustand>();
+            return _context.Oberfläche_Zustände.ToList();
         }
 
-        public Oberfläche_Zustand Add(Oberfläche_Zustand item)
+        public Oberfläche_Zustand? Add(Oberfläche_Zustand item)
         {
-            //ToDo implement
-            return new Oberfläche_Zustand();
+            _context.Oberfläche_Zustände.Add(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return item;
+            }
+
+            return null;
         }
 
-        public Oberfläche_Zustand Update(Oberfläche_Zustand item)
+        public Oberfläche_Zustand? Update(Oberfläche_Zustand item)
         {
-            //ToDo implement
-            return new Oberfläche_Zustand();
+            _context.Oberfläche_Zustände.Update(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return item;
+            }
+
+            return null;
         }
 
         public bool Delete(int id)
         {
-            //ToDo implement
-            return true;
+            var item = _context.Oberfläche_Zustände.Where(o => o.Id == id);
+            _context.Remove(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

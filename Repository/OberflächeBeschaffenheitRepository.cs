@@ -17,28 +17,46 @@ namespace Materialempfehlung.Repository
             _context = context;
         }
 
-        public List<Äußerer_Einfluss> GetAll()
+        public List<Oberfläche_Beschaffenheit> GetAll()
         {
-            //ToDo implement
-            return new List<Äußerer_Einfluss>();
+            return _context.Oberfläche_Beschaffenheiten.ToList();
         }
 
-        public Oberfläche_Beschaffenheit Add(Oberfläche_Beschaffenheit item)
+        public Oberfläche_Beschaffenheit? Add(Oberfläche_Beschaffenheit item)
         {
-            //ToDo implement
-            return new Oberfläche_Beschaffenheit();
+            _context.Oberfläche_Beschaffenheiten.Add(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return item;
+            }
+
+            return null;
         }
 
-        public Oberfläche_Beschaffenheit Update(Oberfläche_Beschaffenheit item)
+        public Oberfläche_Beschaffenheit? Update(Oberfläche_Beschaffenheit item)
         {
-            //ToDo implement
-            return new Oberfläche_Beschaffenheit();
+            _context.Oberfläche_Beschaffenheiten.Update(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return item;
+            }
+
+            return null;
         }
 
         public bool Delete(int id)
         {
-            //ToDo implement
-            return true;
+            var item = _context.Oberfläche_Beschaffenheiten.Where(o => o.Id == id);
+            _context.Remove(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

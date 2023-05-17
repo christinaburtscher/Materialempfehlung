@@ -3,7 +3,7 @@ using Materialempfehlung.Models;
 
 namespace Materialempfehlung.Repository
 {
-    internal class ÄußererEinflussRepository
+    public  class ÄußererEinflussRepository : IMaterialempfehlungRepository<Äußerer_Einfluss>
     {
         private readonly MaterialempfehlungContext _context;
 
@@ -19,26 +19,49 @@ namespace Materialempfehlung.Repository
 
         public List<Äußerer_Einfluss> GetAll()
         {
-            //ToDo implement
-            return new List<Äußerer_Einfluss>();
+            return _context.Äußere_Einflüsse.ToList();
         }
 
-        public Äußerer_Einfluss Add(Äußerer_Einfluss item)
+        public Äußerer_Einfluss? Add(Äußerer_Einfluss item)
         {
-            //ToDo implement
-            return new Äußerer_Einfluss();
+            _context.Äußere_Einflüsse.Add(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return item;
+            }
+
+            return null;
         }
 
-        public Äußerer_Einfluss Update(Äußerer_Einfluss item)
+        public Äußerer_Einfluss? Update(Äußerer_Einfluss item)
         {
-            //ToDo implement
-            return new Äußerer_Einfluss();
+            _context.Äußere_Einflüsse.Update(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return item;
+            }
+
+            return null;
         }
 
         public bool Delete(int id)
         {
-            //ToDo implement
-            return true;
+            var item = _context.Äußere_Einflüsse.Where(o => o.Id == id);
+            _context.Remove(item);
+            var result = _context.SaveChanges();
+            if (result >= 1)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
         }
     }
 }
