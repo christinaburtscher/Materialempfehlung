@@ -30,12 +30,12 @@
         {
             components = new System.ComponentModel.Container();
             splitContainer2 = new SplitContainer();
-            listBoxEmpfehlungen_Detail = new ListBox();
-            listBoxMaterialEmpfehlung_Detail = new ListBox();
+            listBoxEmpfehlungen_Bereiche = new ListBox();
+            listBoxMaterialEmpfehlung_Inhalt = new ListBox();
             contextMenuStripBereiche = new ContextMenuStrip(components);
-            neuToolStripMenuItem = new ToolStripMenuItem();
-            bearbeitenToolStripMenuItem = new ToolStripMenuItem();
+            neuerInhaltToolStripMenuItem = new ToolStripMenuItem();
             löschenToolStripMenuItem = new ToolStripMenuItem();
+            neuerBereichToolStripMenuItem = new ToolStripMenuItem();
             errorProviderEmpfehlungen = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)splitContainer2).BeginInit();
             splitContainer2.Panel1.SuspendLayout();
@@ -53,63 +53,64 @@
             // 
             // splitContainer2.Panel1
             // 
-            splitContainer2.Panel1.Controls.Add(listBoxEmpfehlungen_Detail);
+            splitContainer2.Panel1.Controls.Add(listBoxEmpfehlungen_Bereiche);
             // 
             // splitContainer2.Panel2
             // 
-            splitContainer2.Panel2.Controls.Add(listBoxMaterialEmpfehlung_Detail);
+            splitContainer2.Panel2.Controls.Add(listBoxMaterialEmpfehlung_Inhalt);
             splitContainer2.Size = new Size(743, 533);
             splitContainer2.SplitterDistance = 247;
             splitContainer2.TabIndex = 2;
             // 
-            // listBoxEmpfehlungen_Detail
+            // listBoxEmpfehlungen_Bereiche
             // 
-            listBoxEmpfehlungen_Detail.Dock = DockStyle.Fill;
-            listBoxEmpfehlungen_Detail.FormattingEnabled = true;
-            listBoxEmpfehlungen_Detail.ItemHeight = 15;
-            listBoxEmpfehlungen_Detail.Items.AddRange(new object[] { "ÄußererEinfluss", "Bedingung", "Besonderheit", "Druckverfahren", "Kategorie", "Klebstoff", "Material", "Oberfläche", "OberflächeBeschaffenheit", "OberflächeFarbe", "OberflächeForm", "OberflächeZustand", "Veredelung" });
-            listBoxEmpfehlungen_Detail.Location = new Point(0, 0);
-            listBoxEmpfehlungen_Detail.Name = "listBoxEmpfehlungen_Detail";
-            listBoxEmpfehlungen_Detail.Size = new Size(247, 533);
-            listBoxEmpfehlungen_Detail.TabIndex = 0;
-            listBoxEmpfehlungen_Detail.SelectedIndexChanged += ListBoxEmpfehlungen_Detail_SelectedIndexChanged;
+            listBoxEmpfehlungen_Bereiche.Dock = DockStyle.Fill;
+            listBoxEmpfehlungen_Bereiche.FormattingEnabled = true;
+            listBoxEmpfehlungen_Bereiche.ItemHeight = 15;
+            listBoxEmpfehlungen_Bereiche.Items.AddRange(new object[] { "Äußerer_Einfluss", "Bedingung", "Besonderheit", "Druckverfahren", "Kategorie", "Klebstoff", "Oberfläche", "Oberfläche_Beschaffenheit", "Oberfläche_Farbe", "Oberfläche_Form", "Oberfläche_Zustand", "Veredelung" });
+            listBoxEmpfehlungen_Bereiche.Location = new Point(0, 0);
+            listBoxEmpfehlungen_Bereiche.Name = "listBoxEmpfehlungen_Bereiche";
+            listBoxEmpfehlungen_Bereiche.Size = new Size(247, 533);
+            listBoxEmpfehlungen_Bereiche.TabIndex = 0;
+            listBoxEmpfehlungen_Bereiche.SelectedIndexChanged += ListBoxEmpfehlungen_Detail_SelectedIndexChanged;
+            listBoxEmpfehlungen_Bereiche.MouseDown += ListBoxEmpfehlungen_Bereiche_MouseDown;
             // 
-            // listBoxMaterialEmpfehlung_Detail
+            // listBoxMaterialEmpfehlung_Inhalt
             // 
-            listBoxMaterialEmpfehlung_Detail.Dock = DockStyle.Fill;
-            listBoxMaterialEmpfehlung_Detail.FormattingEnabled = true;
-            listBoxMaterialEmpfehlung_Detail.ItemHeight = 15;
-            listBoxMaterialEmpfehlung_Detail.Location = new Point(0, 0);
-            listBoxMaterialEmpfehlung_Detail.Name = "listBoxMaterialEmpfehlung_Detail";
-            listBoxMaterialEmpfehlung_Detail.Size = new Size(492, 533);
-            listBoxMaterialEmpfehlung_Detail.TabIndex = 0;
+            listBoxMaterialEmpfehlung_Inhalt.Dock = DockStyle.Fill;
+            listBoxMaterialEmpfehlung_Inhalt.FormattingEnabled = true;
+            listBoxMaterialEmpfehlung_Inhalt.ItemHeight = 15;
+            listBoxMaterialEmpfehlung_Inhalt.Location = new Point(0, 0);
+            listBoxMaterialEmpfehlung_Inhalt.Name = "listBoxMaterialEmpfehlung_Inhalt";
+            listBoxMaterialEmpfehlung_Inhalt.Size = new Size(492, 533);
+            listBoxMaterialEmpfehlung_Inhalt.TabIndex = 0;
             // 
             // contextMenuStripBereiche
             // 
-            contextMenuStripBereiche.Items.AddRange(new ToolStripItem[] { neuToolStripMenuItem, bearbeitenToolStripMenuItem, löschenToolStripMenuItem });
+            contextMenuStripBereiche.Items.AddRange(new ToolStripItem[] { neuerInhaltToolStripMenuItem, löschenToolStripMenuItem, neuerBereichToolStripMenuItem });
             contextMenuStripBereiche.Name = "contextMenuStripBereiche";
-            contextMenuStripBereiche.Size = new Size(131, 70);
+            contextMenuStripBereiche.Size = new Size(203, 70);
             // 
-            // neuToolStripMenuItem
+            // neuerInhaltToolStripMenuItem
             // 
-            neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            neuToolStripMenuItem.Size = new Size(130, 22);
-            neuToolStripMenuItem.Text = "Neu";
-            neuToolStripMenuItem.Click += NeuToolStripMenuItem_Click;
-            // 
-            // bearbeitenToolStripMenuItem
-            // 
-            bearbeitenToolStripMenuItem.Name = "bearbeitenToolStripMenuItem";
-            bearbeitenToolStripMenuItem.Size = new Size(130, 22);
-            bearbeitenToolStripMenuItem.Text = "Bearbeiten";
-            bearbeitenToolStripMenuItem.Click += BearbeitenToolStripMenuItem_Click;
+            neuerInhaltToolStripMenuItem.Name = "neuerInhaltToolStripMenuItem";
+            neuerInhaltToolStripMenuItem.Size = new Size(202, 22);
+            neuerInhaltToolStripMenuItem.Text = "Neuer Inhalt";
+            neuerInhaltToolStripMenuItem.Click += NeuerInhaltToolStripMenuItem_Click;
             // 
             // löschenToolStripMenuItem
             // 
             löschenToolStripMenuItem.Name = "löschenToolStripMenuItem";
-            löschenToolStripMenuItem.Size = new Size(130, 22);
-            löschenToolStripMenuItem.Text = "Löschen";
+            löschenToolStripMenuItem.Size = new Size(202, 22);
+            löschenToolStripMenuItem.Text = "Inhalt löschen / ersetzen";
             löschenToolStripMenuItem.Click += LöschenToolStripMenuItem_Click;
+            // 
+            // neuerBereichToolStripMenuItem
+            // 
+            neuerBereichToolStripMenuItem.Name = "neuerBereichToolStripMenuItem";
+            neuerBereichToolStripMenuItem.Size = new Size(202, 22);
+            neuerBereichToolStripMenuItem.Text = "Neuer Bereich";
+            neuerBereichToolStripMenuItem.Click += NeuerBereichToolStripMenuItem_Click;
             // 
             // errorProviderEmpfehlungen
             // 
@@ -134,11 +135,11 @@
         #endregion
 
         private SplitContainer splitContainer2;
-        private ListBox listBoxEmpfehlungen_Detail;
-        private ListBox listBoxMaterialEmpfehlung_Detail;
+        private ListBox listBoxEmpfehlungen_Bereiche;
+        private ListBox listBoxMaterialEmpfehlung_Inhalt;
         private ContextMenuStrip contextMenuStripBereiche;
-        private ToolStripMenuItem neuToolStripMenuItem;
-        private ToolStripMenuItem bearbeitenToolStripMenuItem;
+        private ToolStripMenuItem neuerBereichToolStripMenuItem;
+        private ToolStripMenuItem neuerInhaltToolStripMenuItem;
         private ToolStripMenuItem löschenToolStripMenuItem;
         private ErrorProvider errorProviderEmpfehlungen;
     }

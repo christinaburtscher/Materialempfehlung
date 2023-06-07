@@ -4,47 +4,39 @@
     {
         public int Id { get; set; }
 
-        public string Artikelnummer_Carini  { get; set; }
+        //maarcod
+        public string Artikelnummer_Bezeichnung  { get; set; }      
 
-        public string Bezeichnung { get; set; }
+        //maarprart
+        public int Preisartikel { get; set; }
 
-        public string Qualität  { get; set; }
+        //maarbez Preisartikel
+        public string? Bezeichnung { get; set; }
 
-        public string Artikeltyp  { get; set; }
+        //Qualität Preisartikel
+        public string? Qualität  { get; set; }
 
-        public string Dicke_mm { get; set; }
+        //intern
+        public string? Bemerkung { get; set; }
 
-        public string Grammgewicht { get; set; }
-
-        public string Bemerkung { get; set; }
-
+        //Preisartikel
         public double Preis { get; set; }
 
+        //Preisartikel
+        public double Lieferzeit { get; set; }
+
+        public string? Status  { get; set; }
+
+        public string? Farbe { get; set; }
+
+        public string? Klebstoff_Printplus { get; set; }
+
+        // intern
         public DateTime Erstellungsdatum { get; set; }
 
-        public DateTime Änderungsdatum { get; set; }
+        // intern
+        public DateTime? Änderungsdatum { get; set; }
 
-        // Relations
-        public List<Äußerer_Einfluss>? Äußere_Einflüsse { get; set; }
-
-        public List<Bedingung>? Bedingungen { get; set; }
-
-        public List<Besonderheit>? Besonderheiten { get; set; }
-
-        public List<Druckverfahren>? Druckverfahren  { get; set; }
-
-        public List<Kategorie>? Kategorien { get; set; }
-
-        public List<Klebstoff>? Klebstoffe  { get; set; }
-
-        public List<Oberfläche>? Oberflächen  { get; set; }
-
-        public List<Oberfläche_Beschaffenheit>? Oberfläche_Beschaffenheiten { get; set; }
-
-        public List<Oberfläche_Farbe>? Oberfläche_Farben { get; set; }
-
-        public List<Oberfläche_Form>? Oberfläche_Formen { get; set; }
-
-        public List<Oberfläche_Zustand>? Oberfläche_Zustände { get; set; }
+        public bool Inaktiv { get; set; }
     }
 }
