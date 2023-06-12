@@ -2,6 +2,7 @@
 using Materialempfehlung.Models;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
+using System.Collections.Generic;
 
 namespace Materialempfehlung.Repository
 {
@@ -162,6 +163,82 @@ namespace Materialempfehlung.Repository
             }
 
             return result;
+        }
+
+        public List<Material> GetMaterialInformationen(List<int> preisartikel)
+        {
+            //ToDo testing 
+            var materialien = new List<Material>();
+            var result = new Material();
+
+            using (SqlConnection connection = new(_connectionString))
+            {
+                connection.Open();
+                string sql = $"SELECT * FROM MEL_Material WITH(NOLOCK) WHERE Preisartikel IN ({string.Join(",", preisartikel)})";
+                using SqlCommand command = new(sql, connection);
+                using SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    result.Id = (int)reader["id"];
+                    result.Artikelnummer_Bezeichnung = reader["Artikelnummer_Bezeichnung"] as string ?? string.Empty;
+                    result.Bemerkung = reader["Bemerkung"] as string ?? string.Empty;
+                    result.Erstellungsdatum = (DateTime)reader["Erstellungsdatum"];
+                    result.Änderungsdatum = Convert.IsDBNull(reader["Änderungsdtum"]) ? null : (DateTime?)reader["Änderungsdatum"];
+                    result.Preisartikel = (int)reader["Preisartikel"];
+
+                    materialien.Add(result);
+                }
+            }
+
+            foreach (var item in materialien)
+            {
+                using (SqlConnection connection = new(_ppConnectionString))
+                {
+                    connection.Open();
+
+                    string sql = $"SELECT TOP 1 " +
+                       $"MAAR.maarcod as 'Artikelnummer_Bezeichnung' " +
+                       $",MAAR1.maarbez as 'Bezeichnung' " +
+                       $",MAAR1.maarekp1 as 'Preis' " +
+                       $",MAAR.maarlzt as 'Lieferzeit' " +
+                       $",MAAR.inactive as 'Inaktiv' " +
+                       $",obermaterial.alglabel as 'MAT-Qualität' " +
+                       $",algstatus.alglabel as 'Status' " +
+                       $",klebstoff.alglabel as 'Klebstoff' " +
+                       $",farbe.alglabel as 'Farbe' " +
+                       $"FROM PPCARINI.dbo.T_MAAR MAAR WITH(NOLOCK) " +
+                       $"LEFT JOIN ppcarini.dbo.T_MAAR MAAR1 ON MAAR.maarprart = MAAR1.maararnr " +
+                       $"LEFT JOIN PPCARINI.dbo.T_ALG10I2Y as obermaterial ON MAAR1.maargrp = obermaterial.algvalue and obermaterial.algvxnr = '301' " +
+                       $"LEFT JOIN PPCARINI.dbo.T_ALG10I2Y as algstatus ON MAAR1.maarstat = algstatus.algvalue and algstatus.algvxnr = '300' " +
+                       $"LEFT JOIN PPCARINI.dbo.T_ALG10I2Y as klebstoff ON MAAR1.maarofl = klebstoff.algvalue and klebstoff.algvxnr = '311' " +
+                       $"LEFT JOIN PPCARINI.dbo.T_ALG10I2Y as farbe ON MAAR1.maarfrb = farbe.algvalue and farbe.algvxnr = '302' " +
+                       $"WHERE MAAR.maarprart like {item.Preisartikel} " +
+                       $"AND MAAR.deleted = '0'";
+                    using SqlCommand command = new(sql, connection);
+                    using SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        var artikelnummer = reader["Artikelnummer_Bezeichnung"] as string ?? string.Empty;
+
+                        result.Artikelnummer_Bezeichnung = StringHelper.BreiteEntfernen(artikelnummer);
+                        result.Bezeichnung = reader["Bezeichnung"] as string ?? string.Empty;
+                        result.Preis = (double)(decimal)reader["Preis"];
+                        result.Lieferzeit = (int)reader["Lieferzeit"];
+                        result.Qualität = reader["MAT-Qualität"] as string ?? string.Empty;
+                        result.Status = reader["Status"] as string ?? string.Empty;
+                        result.Farbe = reader["Farbe"] as string ?? string.Empty;
+                        result.Klebstoff_Printplus = reader["Klebstoff"] as string ?? string.Empty;
+
+                        var inaktiv = reader["Inaktiv"] as string ?? string.Empty;
+                        if (inaktiv == "1")
+                        {
+                            result.Inaktiv = true;
+                        }
+                    }
+                }
+            }
+
+            return materialien;
         }
 
         public List<Material> GetAll()

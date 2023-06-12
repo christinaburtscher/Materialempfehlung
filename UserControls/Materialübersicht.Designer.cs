@@ -68,6 +68,7 @@
             labelÄußereEinflüsse = new Label();
             splitContainer1 = new SplitContainer();
             groupBoxInformationen = new GroupBox();
+            labelInaktiv = new Label();
             comboBoxArtikelnummer = new ComboBox();
             textBoxFarbe = new TextBox();
             labelFarbe = new Label();
@@ -86,7 +87,6 @@
             labelBezeichnung = new Label();
             labelArtikelnummer = new Label();
             errorProviderMaterialübersicht = new ErrorProvider(components);
-            labelInaktiv = new Label();
             labelBesonderheiten = new Label();
             groupBoxEmpfehlungen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -403,6 +403,7 @@
             // 
             // listBoxKategorien
             // 
+            listBoxKategorien.AccessibleName = "Kategorie";
             listBoxKategorien.FormattingEnabled = true;
             listBoxKategorien.ItemHeight = 15;
             listBoxKategorien.Location = new Point(143, 488);
@@ -559,6 +560,16 @@
             groupBoxInformationen.TabIndex = 0;
             groupBoxInformationen.TabStop = false;
             groupBoxInformationen.Text = "Allgemeine Informationen";
+            // 
+            // labelInaktiv
+            // 
+            labelInaktiv.AutoSize = true;
+            labelInaktiv.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            labelInaktiv.Location = new Point(359, 27);
+            labelInaktiv.Name = "labelInaktiv";
+            labelInaktiv.Size = new Size(358, 16);
+            labelInaktiv.TabIndex = 31;
+            labelInaktiv.Text = "Material ist inaktiv und kann nicht verändert werden";
             // 
             // comboBoxArtikelnummer
             // 
@@ -717,16 +728,6 @@
             // errorProviderMaterialübersicht
             // 
             errorProviderMaterialübersicht.ContainerControl = this;
-            // 
-            // labelInaktiv
-            // 
-            labelInaktiv.AutoSize = true;
-            labelInaktiv.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            labelInaktiv.Location = new Point(359, 27);
-            labelInaktiv.Name = "labelInaktiv";
-            labelInaktiv.Size = new Size(358, 16);
-            labelInaktiv.TabIndex = 31;
-            labelInaktiv.Text = "Material ist inaktiv und kann nicht verändert werden";
             // 
             // Materialübersicht
             // 

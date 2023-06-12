@@ -1,4 +1,5 @@
 using Materialempfehlung.Repository;
+using Materialempfehlung.UserControls;
 using System.DirectoryServices.AccountManagement;
 
 namespace Materialempfehlung
@@ -8,6 +9,7 @@ namespace Materialempfehlung
         private readonly UserRepository _userRepository;
         private readonly MaterialRepository _materialRepository;
         private readonly Materialübersicht _materialÜbersicht;
+        private readonly MaterialSuche _materialSuche;
 
         public Monitor()
         {
@@ -26,6 +28,11 @@ namespace Materialempfehlung
             }
 
             _materialÜbersicht = new Materialübersicht
+            {
+                Dock = DockStyle.Fill
+            };
+
+            _materialSuche = new MaterialSuche
             {
                 Dock = DockStyle.Fill
             };
@@ -57,6 +64,9 @@ namespace Materialempfehlung
                 };
                 tabPageEmpfehlungen_Admin.Controls.Add(empfehlungenControl);
             }
+
+            var materialSucheControl = new MaterialSuche { Dock = DockStyle.Fill };
+            tabPageÜbersicht.Controls.Add(materialSucheControl);
         }
 
         private Dictionary<string, string>? UserInformationen(string username)

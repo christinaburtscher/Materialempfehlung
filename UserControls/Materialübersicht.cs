@@ -10,6 +10,7 @@ namespace Materialempfehlung
         private readonly MaterialRepository _materialRepository;
         private readonly EmpfehlungenRepository _empfehlungenRepository;
         private ListBox _selectedListBox = new();
+        private bool _initialLoading = false;
 
         public Materialübersicht()
         {
@@ -180,6 +181,7 @@ namespace Materialempfehlung
                             return;
                         }
 
+                        _initialLoading = true;
                         var listboxes = groupBoxEmpfehlungen.Controls.OfType<ListBox>().Select(o => o.AccessibilityObject).Where(w => !string.IsNullOrEmpty(w.Name)).Select(v => v.Name);
                         foreach (var listbox in listboxes)
                         {
@@ -209,6 +211,8 @@ namespace Materialempfehlung
                                 }
                             }
                         }
+
+                        _initialLoading = false;
 
                         if (material.Id > 0 || material.Inaktiv)
                         {
@@ -383,7 +387,7 @@ namespace Materialempfehlung
             if (comboBoxArtikelnummer.SelectedItem is MaterialVorschlag selectedItem)
             {
                 //get selected item
-                var inhalt = (List<string>)selectedListBox.DataSource;
+                var inhalt = selectedListBox.SelectedItems.Cast<string>().ToList();
                 foreach (var item in inhalt)
                 {
                     if (!string.IsNullOrEmpty(item))
@@ -407,7 +411,7 @@ namespace Materialempfehlung
                 }
 
                 //neue Werte in Listbox anzeigen
-                var items = (List<string>)selectedListBox.DataSource;
+                var items = selectedListBox.SelectedItems.Cast<string>().ToList();
                 var newDatasource = items.Except(items).ToList();
                 selectedListBox.DataSource = null;
                 selectedListBox.DataSource = newDatasource;
@@ -448,62 +452,98 @@ namespace Materialempfehlung
 
         private void ComboBoxÄußerer_Einfluss_TextChanged(object sender, EventArgs e)
         {
-            AddRelation(comboBoxÄußerer_Einfluss);
+            if (!_initialLoading)
+            {
+                AddRelation(comboBoxÄußerer_Einfluss);
+            }
         }
 
         private void ComboBoxBedingung_TextChanged(object sender, EventArgs e)
         {
-            AddRelation(comboBoxBedingung);
+            if (!_initialLoading)
+            {
+                AddRelation(comboBoxBedingung);
+            }
         }
 
         private void ComboBoxBesonderheit_TextChanged(object sender, EventArgs e)
         {
-            AddRelation(comboBoxBesonderheit);
+            if (!_initialLoading)
+            {
+                AddRelation(comboBoxBesonderheit);
+            }
         }
 
         private void ComboBoxDruckverfahren_TextChanged(object sender, EventArgs e)
         {
-            AddRelation(comboBoxDruckverfahren);
+            if (!_initialLoading)
+            {
+                AddRelation(comboBoxDruckverfahren);
+            }
         }
 
         private void ComboBoxKategorie_TextChanged(object sender, EventArgs e)
         {
-            AddRelation(comboBoxKategorie);
+            if (!_initialLoading)
+            {
+                AddRelation(comboBoxKategorie);
+            }
         }
 
         private void ComboBoxKlebstoff_TextChanged(object sender, EventArgs e)
         {
-            AddRelation(comboBoxKlebstoff);
+            if (!_initialLoading)
+            {
+                AddRelation(comboBoxKlebstoff);
+            }
         }
 
         private void ComboBoxVeredelung_TextChanged(object sender, EventArgs e)
         {
-            AddRelation(comboBoxVeredelung);
+            if (!_initialLoading)
+            {
+                AddRelation(comboBoxVeredelung);
+            }
         }
 
         private void ComboBoxOberfläche_TextChanged(object sender, EventArgs e)
         {
-            AddRelation(comboBoxOberfläche);
+            if (!_initialLoading)
+            {
+                AddRelation(comboBoxOberfläche);
+            }
         }
 
         private void ComboBoxOberfläche_Beschaffenheit_TextChanged(object sender, EventArgs e)
         {
-            AddRelation(comboBoxOberfläche_Beschaffenheit);
+            if (!_initialLoading)
+            {
+                AddRelation(comboBoxOberfläche_Beschaffenheit);
+            }
         }
 
         private void ComboBoxOberfläche_Farbe_TextChanged(object sender, EventArgs e)
         {
-            AddRelation(comboBoxOberfläche_Farbe);
+            if (!_initialLoading)
+            {
+                AddRelation(comboBoxOberfläche_Farbe);
+            }
         }
 
         private void ComboBoxOberfläche_Form_TextChanged(object sender, EventArgs e)
         {
-            AddRelation(comboBoxOberfläche_Form);
+            if (!_initialLoading)
+            {
+                AddRelation(comboBoxOberfläche_Form);
+            }
         }
 
         private void ComboBoxOberfläche_Zustand_TextChanged(object sender, EventArgs e)
         {
-            AddRelation(comboBoxOberfläche_Zustand);
+            if (!_initialLoading)
+            {
+                AddRelation(comboBoxOberfläche_Zustand);
+            }
         }
     }
 }
