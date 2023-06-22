@@ -21,7 +21,6 @@ namespace Materialempfehlung.Repository
 
         public Dictionary<string, string> GetAbteilung(string username)
         {
-            //ToDo check default value from Dictionary
             //get user
             var result = new Dictionary<string, string>();
             var user = string.Empty;

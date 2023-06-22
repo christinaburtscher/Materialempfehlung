@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             groupBoxÜbersicht = new GroupBox();
             splitContainer1 = new SplitContainer();
             groupBoxInhalte = new GroupBox();
@@ -155,19 +156,32 @@
             dataGridViewSuchkriterien.AllowUserToAddRows = false;
             dataGridViewSuchkriterien.AllowUserToDeleteRows = false;
             dataGridViewSuchkriterien.AutoGenerateColumns = false;
+            dataGridViewSuchkriterien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCellsExceptHeader;
+            dataGridViewSuchkriterien.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             dataGridViewSuchkriterien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewSuchkriterien.Columns.AddRange(new DataGridViewColumn[] { bereichDataGridViewTextBoxColumn, inhaltDataGridViewTextBoxColumn });
             dataGridViewSuchkriterien.DataSource = empfehlungBindingSource;
-            dataGridViewSuchkriterien.Enabled = false;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridViewSuchkriterien.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewSuchkriterien.Location = new Point(11, 22);
+            dataGridViewSuchkriterien.MultiSelect = false;
             dataGridViewSuchkriterien.Name = "dataGridViewSuchkriterien";
             dataGridViewSuchkriterien.ReadOnly = true;
             dataGridViewSuchkriterien.RowTemplate.Height = 25;
+            dataGridViewSuchkriterien.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewSuchkriterien.Size = new Size(295, 109);
             dataGridViewSuchkriterien.TabIndex = 26;
+            dataGridViewSuchkriterien.KeyDown += DataGridViewSuchkriterien_KeyDown;
             // 
             // bereichDataGridViewTextBoxColumn
             // 
+            bereichDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             bereichDataGridViewTextBoxColumn.DataPropertyName = "Bereich";
             bereichDataGridViewTextBoxColumn.HeaderText = "Bereich";
             bereichDataGridViewTextBoxColumn.Name = "bereichDataGridViewTextBoxColumn";
@@ -179,6 +193,7 @@
             inhaltDataGridViewTextBoxColumn.HeaderText = "Inhalt";
             inhaltDataGridViewTextBoxColumn.Name = "inhaltDataGridViewTextBoxColumn";
             inhaltDataGridViewTextBoxColumn.ReadOnly = true;
+            inhaltDataGridViewTextBoxColumn.Width = 5;
             // 
             // empfehlungBindingSource
             // 
@@ -444,6 +459,8 @@
             dataGridViewMaterialübersicht.AllowUserToAddRows = false;
             dataGridViewMaterialübersicht.AllowUserToDeleteRows = false;
             dataGridViewMaterialübersicht.AutoGenerateColumns = false;
+            dataGridViewMaterialübersicht.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCellsExceptHeader;
+            dataGridViewMaterialübersicht.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             dataGridViewMaterialübersicht.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewMaterialübersicht.Columns.AddRange(new DataGridViewColumn[] { artikelnummerBezeichnungDataGridViewTextBoxColumn, bezeichnungDataGridViewTextBoxColumn, qualitätDataGridViewTextBoxColumn, bemerkungDataGridViewTextBoxColumn, preisDataGridViewTextBoxColumn, lieferzeitDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn });
             dataGridViewMaterialübersicht.DataSource = materialBindingSource;
@@ -457,13 +474,17 @@
             // 
             // artikelnummerBezeichnungDataGridViewTextBoxColumn
             // 
+            artikelnummerBezeichnungDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             artikelnummerBezeichnungDataGridViewTextBoxColumn.DataPropertyName = "Artikelnummer_Bezeichnung";
             artikelnummerBezeichnungDataGridViewTextBoxColumn.HeaderText = "Artikelnummer_Bezeichnung";
+            artikelnummerBezeichnungDataGridViewTextBoxColumn.MinimumWidth = 100;
             artikelnummerBezeichnungDataGridViewTextBoxColumn.Name = "artikelnummerBezeichnungDataGridViewTextBoxColumn";
             artikelnummerBezeichnungDataGridViewTextBoxColumn.ReadOnly = true;
+            artikelnummerBezeichnungDataGridViewTextBoxColumn.Width = 185;
             // 
             // bezeichnungDataGridViewTextBoxColumn
             // 
+            bezeichnungDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             bezeichnungDataGridViewTextBoxColumn.DataPropertyName = "Bezeichnung";
             bezeichnungDataGridViewTextBoxColumn.HeaderText = "Bezeichnung";
             bezeichnungDataGridViewTextBoxColumn.Name = "bezeichnungDataGridViewTextBoxColumn";
@@ -473,13 +494,16 @@
             // 
             qualitätDataGridViewTextBoxColumn.DataPropertyName = "Qualität";
             qualitätDataGridViewTextBoxColumn.HeaderText = "Qualität";
+            qualitätDataGridViewTextBoxColumn.MinimumWidth = 70;
             qualitätDataGridViewTextBoxColumn.Name = "qualitätDataGridViewTextBoxColumn";
             qualitätDataGridViewTextBoxColumn.ReadOnly = true;
+            qualitätDataGridViewTextBoxColumn.Width = 70;
             // 
             // bemerkungDataGridViewTextBoxColumn
             // 
             bemerkungDataGridViewTextBoxColumn.DataPropertyName = "Bemerkung";
             bemerkungDataGridViewTextBoxColumn.HeaderText = "Bemerkung";
+            bemerkungDataGridViewTextBoxColumn.MinimumWidth = 100;
             bemerkungDataGridViewTextBoxColumn.Name = "bemerkungDataGridViewTextBoxColumn";
             bemerkungDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -487,22 +511,28 @@
             // 
             preisDataGridViewTextBoxColumn.DataPropertyName = "Preis";
             preisDataGridViewTextBoxColumn.HeaderText = "Preis";
+            preisDataGridViewTextBoxColumn.MinimumWidth = 50;
             preisDataGridViewTextBoxColumn.Name = "preisDataGridViewTextBoxColumn";
             preisDataGridViewTextBoxColumn.ReadOnly = true;
+            preisDataGridViewTextBoxColumn.Width = 50;
             // 
             // lieferzeitDataGridViewTextBoxColumn
             // 
             lieferzeitDataGridViewTextBoxColumn.DataPropertyName = "Lieferzeit";
             lieferzeitDataGridViewTextBoxColumn.HeaderText = "Lieferzeit";
+            lieferzeitDataGridViewTextBoxColumn.MinimumWidth = 50;
             lieferzeitDataGridViewTextBoxColumn.Name = "lieferzeitDataGridViewTextBoxColumn";
             lieferzeitDataGridViewTextBoxColumn.ReadOnly = true;
+            lieferzeitDataGridViewTextBoxColumn.Width = 50;
             // 
             // statusDataGridViewTextBoxColumn
             // 
             statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
             statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            statusDataGridViewTextBoxColumn.MinimumWidth = 50;
             statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             statusDataGridViewTextBoxColumn.ReadOnly = true;
+            statusDataGridViewTextBoxColumn.Width = 50;
             // 
             // materialBindingSource
             // 
@@ -570,6 +600,9 @@
         private DataGridView dataGridViewSuchkriterien;
         private BindingSource empfehlungBindingSource;
         private DataGridView dataGridViewMaterialübersicht;
+        private BindingSource materialBindingSource;
+        private DataGridViewTextBoxColumn bereichDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn inhaltDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn artikelnummerBezeichnungDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn bezeichnungDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn qualitätDataGridViewTextBoxColumn;
@@ -577,8 +610,5 @@
         private DataGridViewTextBoxColumn preisDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn lieferzeitDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
-        private BindingSource materialBindingSource;
-        private DataGridViewTextBoxColumn bereichDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn inhaltDataGridViewTextBoxColumn;
     }
 }

@@ -9,7 +9,6 @@ namespace Materialempfehlung
         private readonly UserRepository _userRepository;
         private readonly MaterialRepository _materialRepository;
         private readonly Materialübersicht _materialÜbersicht;
-        private readonly MaterialSuche _materialSuche;
 
         public Monitor()
         {
@@ -28,11 +27,6 @@ namespace Materialempfehlung
             }
 
             _materialÜbersicht = new Materialübersicht
-            {
-                Dock = DockStyle.Fill
-            };
-
-            _materialSuche = new MaterialSuche
             {
                 Dock = DockStyle.Fill
             };
@@ -122,7 +116,7 @@ namespace Materialempfehlung
             if (pc.ValidateCredentials(textBoxUser.Text, textBoxPasswort.Text))
             {
                 var abteilung = UserInformationen(textBoxUser.Text);
-                if (abteilung.ContainsKey(textBoxUser.Text))
+                if (abteilung != null && abteilung.ContainsKey(textBoxUser.Text))
                 {
                     LoginErfolgreich(abteilung.Keys.FirstOrDefault());
                 }
@@ -134,9 +128,9 @@ namespace Materialempfehlung
             }
         }
 
-        private void LoginErfolgreich(string username)
+        private void LoginErfolgreich(string? username)
         {
-            textBoxUser.Text = username;
+            textBoxUser.Text = username ?? string.Empty;
             buttonLogin.Visible = false;
             labelPasswort.Visible = false;
             textBoxPasswort.Visible = false;

@@ -41,8 +41,8 @@
             labelUser = new Label();
             buttonVorauswahl = new Button();
             textBoxVorauswahl = new TextBox();
-            tabPageEmpfehlungen_Admin = new TabPage();
             tabPageÜbersicht = new TabPage();
+            tabPageEmpfehlungen_Admin = new TabPage();
             ((System.ComponentModel.ISupportInitialize)errorProviderVorauswahl).BeginInit();
             tabControlMonitor.SuspendLayout();
             tabPageMaterial.SuspendLayout();
@@ -65,7 +65,7 @@
             tabControlMonitor.Location = new Point(0, 0);
             tabControlMonitor.Name = "tabControlMonitor";
             tabControlMonitor.SelectedIndex = 0;
-            tabControlMonitor.Size = new Size(1156, 1056);
+            tabControlMonitor.Size = new Size(1283, 1056);
             tabControlMonitor.TabIndex = 0;
             // 
             // tabPageMaterial
@@ -74,7 +74,7 @@
             tabPageMaterial.Location = new Point(4, 24);
             tabPageMaterial.Name = "tabPageMaterial";
             tabPageMaterial.Padding = new Padding(3);
-            tabPageMaterial.Size = new Size(1148, 1028);
+            tabPageMaterial.Size = new Size(1275, 1028);
             tabPageMaterial.TabIndex = 0;
             tabPageMaterial.Text = "Material";
             tabPageMaterial.UseVisualStyleBackColor = true;
@@ -89,7 +89,7 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.Controls.Add(groupBoxVorauswahl);
-            splitContainer1.Size = new Size(1142, 1022);
+            splitContainer1.Size = new Size(1269, 1022);
             splitContainer1.SplitterDistance = 88;
             splitContainer1.TabIndex = 0;
             // 
@@ -105,7 +105,7 @@
             groupBoxVorauswahl.Dock = DockStyle.Fill;
             groupBoxVorauswahl.Location = new Point(0, 0);
             groupBoxVorauswahl.Name = "groupBoxVorauswahl";
-            groupBoxVorauswahl.Size = new Size(1142, 88);
+            groupBoxVorauswahl.Size = new Size(1269, 88);
             groupBoxVorauswahl.TabIndex = 0;
             groupBoxVorauswahl.TabStop = false;
             groupBoxVorauswahl.Text = "Vorauswahl";
@@ -116,7 +116,7 @@
             buttonLogin.FlatStyle = FlatStyle.Flat;
             buttonLogin.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             buttonLogin.ForeColor = SystemColors.Control;
-            buttonLogin.Location = new Point(950, 10);
+            buttonLogin.Location = new Point(1145, 10);
             buttonLogin.Name = "buttonLogin";
             buttonLogin.Size = new Size(119, 51);
             buttonLogin.TabIndex = 7;
@@ -127,7 +127,7 @@
             // 
             // textBoxPasswort
             // 
-            textBoxPasswort.Location = new Point(876, 39);
+            textBoxPasswort.Location = new Point(1071, 39);
             textBoxPasswort.Name = "textBoxPasswort";
             textBoxPasswort.PasswordChar = '*';
             textBoxPasswort.Size = new Size(68, 23);
@@ -135,7 +135,7 @@
             // 
             // textBoxUser
             // 
-            textBoxUser.Location = new Point(876, 11);
+            textBoxUser.Location = new Point(1071, 11);
             textBoxUser.Name = "textBoxUser";
             textBoxUser.Size = new Size(68, 23);
             textBoxUser.TabIndex = 5;
@@ -144,7 +144,7 @@
             // 
             labelPasswort.AutoSize = true;
             labelPasswort.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            labelPasswort.Location = new Point(800, 46);
+            labelPasswort.Location = new Point(995, 46);
             labelPasswort.Name = "labelPasswort";
             labelPasswort.Size = new Size(70, 16);
             labelPasswort.TabIndex = 4;
@@ -154,7 +154,7 @@
             // 
             labelUser.AutoSize = true;
             labelUser.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            labelUser.Location = new Point(800, 18);
+            labelUser.Location = new Point(995, 18);
             labelUser.Name = "labelUser";
             labelUser.Size = new Size(40, 16);
             labelUser.TabIndex = 3;
@@ -181,30 +181,30 @@
             textBoxVorauswahl.Size = new Size(149, 23);
             textBoxVorauswahl.TabIndex = 1;
             // 
+            // tabPageÜbersicht
+            // 
+            tabPageÜbersicht.Location = new Point(4, 24);
+            tabPageÜbersicht.Name = "tabPageÜbersicht";
+            tabPageÜbersicht.Size = new Size(1275, 1028);
+            tabPageÜbersicht.TabIndex = 2;
+            tabPageÜbersicht.Text = "Übersicht";
+            tabPageÜbersicht.UseVisualStyleBackColor = true;
+            // 
             // tabPageEmpfehlungen_Admin
             // 
             tabPageEmpfehlungen_Admin.Location = new Point(4, 24);
             tabPageEmpfehlungen_Admin.Name = "tabPageEmpfehlungen_Admin";
             tabPageEmpfehlungen_Admin.Padding = new Padding(3);
-            tabPageEmpfehlungen_Admin.Size = new Size(1148, 1028);
+            tabPageEmpfehlungen_Admin.Size = new Size(1275, 1028);
             tabPageEmpfehlungen_Admin.TabIndex = 1;
             tabPageEmpfehlungen_Admin.Text = "Empfehlungen_Admin";
             tabPageEmpfehlungen_Admin.UseVisualStyleBackColor = true;
-            // 
-            // tabPageÜbersicht
-            // 
-            tabPageÜbersicht.Location = new Point(4, 24);
-            tabPageÜbersicht.Name = "tabPageÜbersicht";
-            tabPageÜbersicht.Size = new Size(1148, 1028);
-            tabPageÜbersicht.TabIndex = 2;
-            tabPageÜbersicht.Text = "Übersicht";
-            tabPageÜbersicht.UseVisualStyleBackColor = true;
             // 
             // Monitor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1156, 1056);
+            ClientSize = new Size(1283, 1056);
             Controls.Add(tabControlMonitor);
             Name = "Monitor";
             Text = "Materialempfehlung";

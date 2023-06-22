@@ -30,12 +30,50 @@
         {
             components = new System.ComponentModel.Container();
             Label labelBesonderheiten;
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle19 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle20 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle21 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle22 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle23 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle24 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle25 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle26 = new DataGridViewCellStyle();
             label12 = new Label();
             labelOberfläche_Zustand = new Label();
             labelOberfläche_Form = new Label();
             label9 = new Label();
             labelOberfläche_Beschaffenheit = new Label();
             groupBoxEmpfehlungen = new GroupBox();
+            dataGridViewOberfläche_Zustand = new DataGridView();
+            dataGridViewOberfläche_Form = new DataGridView();
+            dataGridViewOberfläche_Farbe = new DataGridView();
+            dataGridViewOberfläche_Beschaffenheit = new DataGridView();
+            dataGridViewOberfläche = new DataGridView();
+            dataGridViewVeredelung = new DataGridView();
+            dataGridViewKlebstoff = new DataGridView();
+            dataGridViewKategorie = new DataGridView();
+            dataGridViewDruckverfahren = new DataGridView();
+            dataGridViewBesonderheit = new DataGridView();
+            dataGridViewBedingung = new DataGridView();
+            dataGridViewÄußerer_Einfluss = new DataGridView();
             comboBoxOberfläche_Zustand = new ComboBox();
             comboBoxOberfläche_Form = new ComboBox();
             comboBoxOberfläche_Farbe = new ComboBox();
@@ -48,18 +86,6 @@
             comboBoxBesonderheit = new ComboBox();
             comboBoxDruckverfahren = new ComboBox();
             comboBoxKategorie = new ComboBox();
-            listBoxOberflächeZustand = new ListBox();
-            listBoxOberflächeForm = new ListBox();
-            listBoxOberflächeFarbe = new ListBox();
-            listBoxOberflächeBeschaffenheit = new ListBox();
-            listBoxOberfläche = new ListBox();
-            listBoxVeredelung = new ListBox();
-            listBoxKlebstoff = new ListBox();
-            listBoxKategorien = new ListBox();
-            listBoxDruckverfahren = new ListBox();
-            listBoxBesonderheiten = new ListBox();
-            listBoxBedingungen = new ListBox();
-            listBoxÄußereEinflüsse = new ListBox();
             labelOberfläche = new Label();
             labelKlebstoff = new Label();
             labelKategorien = new Label();
@@ -68,6 +94,18 @@
             labelÄußereEinflüsse = new Label();
             splitContainer1 = new SplitContainer();
             groupBoxInformationen = new GroupBox();
+            textBoxNachhaltigkeit = new TextBox();
+            textBoxKlebstoffeigenschaften = new TextBox();
+            textBoxTrägerpapier = new TextBox();
+            textBoxLagerbedingungen = new TextBox();
+            textBoxTrägerpapiereigenschaften = new TextBox();
+            textBoxMaterialeigenschaften = new TextBox();
+            labelNachhaltigkeit = new Label();
+            labelLagerbedingungen = new Label();
+            labelTrägerpapiereigenschaften = new Label();
+            labelTrägerpapier = new Label();
+            labelKlebstoffeigenschaften = new Label();
+            labelMaterialeigenschaften = new Label();
             labelInaktiv = new Label();
             comboBoxArtikelnummer = new ComboBox();
             textBoxFarbe = new TextBox();
@@ -89,6 +127,18 @@
             errorProviderMaterialübersicht = new ErrorProvider(components);
             labelBesonderheiten = new Label();
             groupBoxEmpfehlungen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewOberfläche_Zustand).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewOberfläche_Form).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewOberfläche_Farbe).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewOberfläche_Beschaffenheit).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewOberfläche).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewVeredelung).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewKlebstoff).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewKategorie).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDruckverfahren).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewBesonderheit).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewBedingung).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewÄußerer_Einfluss).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -153,6 +203,18 @@
             // 
             // groupBoxEmpfehlungen
             // 
+            groupBoxEmpfehlungen.Controls.Add(dataGridViewOberfläche_Zustand);
+            groupBoxEmpfehlungen.Controls.Add(dataGridViewOberfläche_Form);
+            groupBoxEmpfehlungen.Controls.Add(dataGridViewOberfläche_Farbe);
+            groupBoxEmpfehlungen.Controls.Add(dataGridViewOberfläche_Beschaffenheit);
+            groupBoxEmpfehlungen.Controls.Add(dataGridViewOberfläche);
+            groupBoxEmpfehlungen.Controls.Add(dataGridViewVeredelung);
+            groupBoxEmpfehlungen.Controls.Add(dataGridViewKlebstoff);
+            groupBoxEmpfehlungen.Controls.Add(dataGridViewKategorie);
+            groupBoxEmpfehlungen.Controls.Add(dataGridViewDruckverfahren);
+            groupBoxEmpfehlungen.Controls.Add(dataGridViewBesonderheit);
+            groupBoxEmpfehlungen.Controls.Add(dataGridViewBedingung);
+            groupBoxEmpfehlungen.Controls.Add(dataGridViewÄußerer_Einfluss);
             groupBoxEmpfehlungen.Controls.Add(comboBoxOberfläche_Zustand);
             groupBoxEmpfehlungen.Controls.Add(comboBoxOberfläche_Form);
             groupBoxEmpfehlungen.Controls.Add(comboBoxOberfläche_Farbe);
@@ -165,18 +227,6 @@
             groupBoxEmpfehlungen.Controls.Add(comboBoxBesonderheit);
             groupBoxEmpfehlungen.Controls.Add(comboBoxDruckverfahren);
             groupBoxEmpfehlungen.Controls.Add(comboBoxKategorie);
-            groupBoxEmpfehlungen.Controls.Add(listBoxOberflächeZustand);
-            groupBoxEmpfehlungen.Controls.Add(listBoxOberflächeForm);
-            groupBoxEmpfehlungen.Controls.Add(listBoxOberflächeFarbe);
-            groupBoxEmpfehlungen.Controls.Add(listBoxOberflächeBeschaffenheit);
-            groupBoxEmpfehlungen.Controls.Add(listBoxOberfläche);
-            groupBoxEmpfehlungen.Controls.Add(listBoxVeredelung);
-            groupBoxEmpfehlungen.Controls.Add(listBoxKlebstoff);
-            groupBoxEmpfehlungen.Controls.Add(listBoxKategorien);
-            groupBoxEmpfehlungen.Controls.Add(listBoxDruckverfahren);
-            groupBoxEmpfehlungen.Controls.Add(listBoxBesonderheiten);
-            groupBoxEmpfehlungen.Controls.Add(listBoxBedingungen);
-            groupBoxEmpfehlungen.Controls.Add(listBoxÄußereEinflüsse);
             groupBoxEmpfehlungen.Controls.Add(label12);
             groupBoxEmpfehlungen.Controls.Add(labelOberfläche_Zustand);
             groupBoxEmpfehlungen.Controls.Add(labelOberfläche_Form);
@@ -192,10 +242,422 @@
             groupBoxEmpfehlungen.Dock = DockStyle.Fill;
             groupBoxEmpfehlungen.Location = new Point(0, 0);
             groupBoxEmpfehlungen.Name = "groupBoxEmpfehlungen";
-            groupBoxEmpfehlungen.Size = new Size(1019, 591);
+            groupBoxEmpfehlungen.Size = new Size(1208, 572);
             groupBoxEmpfehlungen.TabIndex = 0;
             groupBoxEmpfehlungen.TabStop = false;
             groupBoxEmpfehlungen.Text = "Empfehlungen";
+            // 
+            // dataGridViewOberfläche_Zustand
+            // 
+            dataGridViewOberfläche_Zustand.AccessibleName = "Oberfläche_Zustand";
+            dataGridViewOberfläche_Zustand.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewOberfläche_Zustand.BackgroundColor = SystemColors.Control;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewOberfläche_Zustand.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewOberfläche_Zustand.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewOberfläche_Zustand.ColumnHeadersVisible = false;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridViewOberfläche_Zustand.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewOberfläche_Zustand.GridColor = SystemColors.Control;
+            dataGridViewOberfläche_Zustand.Location = new Point(745, 492);
+            dataGridViewOberfläche_Zustand.Name = "dataGridViewOberfläche_Zustand";
+            dataGridViewOberfläche_Zustand.RowHeadersVisible = false;
+            dataGridViewOberfläche_Zustand.RowTemplate.Height = 20;
+            dataGridViewOberfläche_Zustand.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewOberfläche_Zustand.Size = new Size(186, 77);
+            dataGridViewOberfläche_Zustand.TabIndex = 54;
+            dataGridViewOberfläche_Zustand.KeyDown += DataGridViewOberfläche_Zustand_KeyDown;
+            // 
+            // dataGridViewOberfläche_Form
+            // 
+            dataGridViewOberfläche_Form.AccessibleName = "Oberfläche_Form";
+            dataGridViewOberfläche_Form.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewOberfläche_Form.BackgroundColor = SystemColors.Control;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridViewOberfläche_Form.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewOberfläche_Form.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewOberfläche_Form.ColumnHeadersVisible = false;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dataGridViewOberfläche_Form.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewOberfläche_Form.GridColor = SystemColors.Control;
+            dataGridViewOberfläche_Form.Location = new Point(746, 387);
+            dataGridViewOberfläche_Form.Name = "dataGridViewOberfläche_Form";
+            dataGridViewOberfläche_Form.RowHeadersVisible = false;
+            dataGridViewOberfläche_Form.RowTemplate.Height = 20;
+            dataGridViewOberfläche_Form.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewOberfläche_Form.Size = new Size(185, 68);
+            dataGridViewOberfläche_Form.TabIndex = 53;
+            dataGridViewOberfläche_Form.KeyDown += DataGridViewOberfläche_Form_KeyDown;
+            // 
+            // dataGridViewOberfläche_Farbe
+            // 
+            dataGridViewOberfläche_Farbe.AccessibleName = "Oberfläche_Farbe";
+            dataGridViewOberfläche_Farbe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewOberfläche_Farbe.BackgroundColor = SystemColors.Control;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Control;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dataGridViewOberfläche_Farbe.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewOberfläche_Farbe.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewOberfläche_Farbe.ColumnHeadersVisible = false;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dataGridViewOberfläche_Farbe.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewOberfläche_Farbe.Location = new Point(746, 285);
+            dataGridViewOberfläche_Farbe.Name = "dataGridViewOberfläche_Farbe";
+            dataGridViewOberfläche_Farbe.RowHeadersVisible = false;
+            dataGridViewOberfläche_Farbe.RowTemplate.Height = 20;
+            dataGridViewOberfläche_Farbe.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewOberfläche_Farbe.Size = new Size(186, 62);
+            dataGridViewOberfläche_Farbe.TabIndex = 52;
+            dataGridViewOberfläche_Farbe.KeyDown += DataGridViewOberfläche_Farbe_KeyDown;
+            // 
+            // dataGridViewOberfläche_Beschaffenheit
+            // 
+            dataGridViewOberfläche_Beschaffenheit.AccessibleName = "Oberfläche_Beschaffenheit";
+            dataGridViewOberfläche_Beschaffenheit.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewOberfläche_Beschaffenheit.BackgroundColor = SystemColors.Control;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.Control;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dataGridViewOberfläche_Beschaffenheit.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewOberfläche_Beschaffenheit.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewOberfläche_Beschaffenheit.ColumnHeadersVisible = false;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dataGridViewOberfläche_Beschaffenheit.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewOberfläche_Beschaffenheit.GridColor = SystemColors.Control;
+            dataGridViewOberfläche_Beschaffenheit.Location = new Point(746, 184);
+            dataGridViewOberfläche_Beschaffenheit.Name = "dataGridViewOberfläche_Beschaffenheit";
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = SystemColors.Control;
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dataGridViewOberfläche_Beschaffenheit.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewOberfläche_Beschaffenheit.RowHeadersVisible = false;
+            dataGridViewOberfläche_Beschaffenheit.RowTemplate.Height = 20;
+            dataGridViewOberfläche_Beschaffenheit.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewOberfläche_Beschaffenheit.Size = new Size(185, 62);
+            dataGridViewOberfläche_Beschaffenheit.TabIndex = 51;
+            dataGridViewOberfläche_Beschaffenheit.KeyDown += DataGridViewOberfläche_Beschaffenheit_KeyDown;
+            // 
+            // dataGridViewOberfläche
+            // 
+            dataGridViewOberfläche.AccessibleName = "Oberfläche";
+            dataGridViewOberfläche.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewOberfläche.BackgroundColor = SystemColors.Control;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = SystemColors.Control;
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle10.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle10.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+            dataGridViewOberfläche.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewOberfläche.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewOberfläche.ColumnHeadersVisible = false;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = SystemColors.Window;
+            dataGridViewCellStyle11.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle11.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle11.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
+            dataGridViewOberfläche.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewOberfläche.GridColor = SystemColors.Control;
+            dataGridViewOberfläche.Location = new Point(745, 67);
+            dataGridViewOberfläche.Name = "dataGridViewOberfläche";
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = SystemColors.Control;
+            dataGridViewCellStyle12.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle12.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle12.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
+            dataGridViewOberfläche.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewOberfläche.RowHeadersVisible = false;
+            dataGridViewOberfläche.RowTemplate.Height = 20;
+            dataGridViewOberfläche.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewOberfläche.Size = new Size(186, 77);
+            dataGridViewOberfläche.TabIndex = 50;
+            dataGridViewOberfläche.KeyDown += DataGridViewOberfläche_KeyDown;
+            // 
+            // dataGridViewVeredelung
+            // 
+            dataGridViewVeredelung.AccessibleName = "Veredelung";
+            dataGridViewVeredelung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewVeredelung.BackgroundColor = SystemColors.Control;
+            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = SystemColors.Control;
+            dataGridViewCellStyle13.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle13.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle13.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle13.WrapMode = DataGridViewTriState.True;
+            dataGridViewVeredelung.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewVeredelung.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewVeredelung.ColumnHeadersVisible = false;
+            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = SystemColors.Window;
+            dataGridViewCellStyle14.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle14.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle14.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.False;
+            dataGridViewVeredelung.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewVeredelung.GridColor = SystemColors.Control;
+            dataGridViewVeredelung.Location = new Point(443, 184);
+            dataGridViewVeredelung.Name = "dataGridViewVeredelung";
+            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = SystemColors.Control;
+            dataGridViewCellStyle15.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle15.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle15.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.True;
+            dataGridViewVeredelung.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewVeredelung.RowHeadersVisible = false;
+            dataGridViewVeredelung.RowTemplate.Height = 20;
+            dataGridViewVeredelung.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewVeredelung.Size = new Size(185, 62);
+            dataGridViewVeredelung.TabIndex = 49;
+            dataGridViewVeredelung.KeyDown += DataGridViewVeredelung_KeyDown;
+            // 
+            // dataGridViewKlebstoff
+            // 
+            dataGridViewKlebstoff.AccessibleName = "Klebstoff";
+            dataGridViewKlebstoff.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewKlebstoff.BackgroundColor = SystemColors.Control;
+            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = SystemColors.Control;
+            dataGridViewCellStyle16.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle16.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle16.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle16.WrapMode = DataGridViewTriState.True;
+            dataGridViewKlebstoff.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewKlebstoff.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewKlebstoff.ColumnHeadersVisible = false;
+            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = SystemColors.Window;
+            dataGridViewCellStyle17.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle17.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle17.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle17.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle17.WrapMode = DataGridViewTriState.False;
+            dataGridViewKlebstoff.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewKlebstoff.GridColor = SystemColors.Control;
+            dataGridViewKlebstoff.Location = new Point(443, 67);
+            dataGridViewKlebstoff.Name = "dataGridViewKlebstoff";
+            dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = SystemColors.Control;
+            dataGridViewCellStyle18.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle18.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle18.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle18.WrapMode = DataGridViewTriState.True;
+            dataGridViewKlebstoff.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewKlebstoff.RowHeadersVisible = false;
+            dataGridViewKlebstoff.RowTemplate.Height = 20;
+            dataGridViewKlebstoff.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewKlebstoff.Size = new Size(186, 77);
+            dataGridViewKlebstoff.TabIndex = 48;
+            dataGridViewKlebstoff.KeyDown += DataGridViewKlebstoff_KeyDown;
+            // 
+            // dataGridViewKategorie
+            // 
+            dataGridViewKategorie.AccessibleName = "Kategorie";
+            dataGridViewKategorie.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewKategorie.BackgroundColor = SystemColors.Control;
+            dataGridViewCellStyle19.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = SystemColors.Control;
+            dataGridViewCellStyle19.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle19.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle19.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle19.WrapMode = DataGridViewTriState.True;
+            dataGridViewKategorie.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewKategorie.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewKategorie.ColumnHeadersVisible = false;
+            dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = SystemColors.Window;
+            dataGridViewCellStyle20.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle20.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle20.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle20.WrapMode = DataGridViewTriState.False;
+            dataGridViewKategorie.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewKategorie.GridColor = SystemColors.Control;
+            dataGridViewKategorie.Location = new Point(143, 490);
+            dataGridViewKategorie.Name = "dataGridViewKategorie";
+            dataGridViewKategorie.RowHeadersVisible = false;
+            dataGridViewKategorie.RowTemplate.Height = 20;
+            dataGridViewKategorie.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewKategorie.Size = new Size(185, 79);
+            dataGridViewKategorie.TabIndex = 47;
+            dataGridViewKategorie.KeyDown += DataGridViewKategorie_KeyDown;
+            // 
+            // dataGridViewDruckverfahren
+            // 
+            dataGridViewDruckverfahren.AccessibleName = "Druckverfahren";
+            dataGridViewDruckverfahren.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewDruckverfahren.BackgroundColor = SystemColors.Control;
+            dataGridViewCellStyle21.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = SystemColors.Control;
+            dataGridViewCellStyle21.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle21.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle21.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle21.WrapMode = DataGridViewTriState.True;
+            dataGridViewDruckverfahren.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewDruckverfahren.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewDruckverfahren.ColumnHeadersVisible = false;
+            dataGridViewCellStyle22.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = SystemColors.Window;
+            dataGridViewCellStyle22.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle22.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle22.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle22.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle22.WrapMode = DataGridViewTriState.False;
+            dataGridViewDruckverfahren.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewDruckverfahren.GridColor = SystemColors.Control;
+            dataGridViewDruckverfahren.Location = new Point(143, 387);
+            dataGridViewDruckverfahren.Name = "dataGridViewDruckverfahren";
+            dataGridViewDruckverfahren.RowHeadersVisible = false;
+            dataGridViewDruckverfahren.RowTemplate.Height = 20;
+            dataGridViewDruckverfahren.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewDruckverfahren.Size = new Size(185, 68);
+            dataGridViewDruckverfahren.TabIndex = 46;
+            dataGridViewDruckverfahren.KeyDown += DataGridViewDruckverfahren_KeyDown;
+            // 
+            // dataGridViewBesonderheit
+            // 
+            dataGridViewBesonderheit.AccessibleName = "Besonderheit";
+            dataGridViewBesonderheit.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewBesonderheit.BackgroundColor = SystemColors.Control;
+            dataGridViewBesonderheit.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewBesonderheit.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewBesonderheit.ColumnHeadersVisible = false;
+            dataGridViewCellStyle23.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = SystemColors.Window;
+            dataGridViewCellStyle23.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle23.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle23.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle23.WrapMode = DataGridViewTriState.False;
+            dataGridViewBesonderheit.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewBesonderheit.GridColor = SystemColors.Control;
+            dataGridViewBesonderheit.Location = new Point(143, 285);
+            dataGridViewBesonderheit.Name = "dataGridViewBesonderheit";
+            dataGridViewBesonderheit.RowHeadersVisible = false;
+            dataGridViewBesonderheit.RowTemplate.Height = 20;
+            dataGridViewBesonderheit.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewBesonderheit.Size = new Size(185, 62);
+            dataGridViewBesonderheit.TabIndex = 45;
+            dataGridViewBesonderheit.KeyDown += DataGridViewBesonderheit_KeyDown;
+            // 
+            // dataGridViewBedingung
+            // 
+            dataGridViewBedingung.AccessibleName = "Bedingung";
+            dataGridViewBedingung.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewBedingung.BackgroundColor = SystemColors.Control;
+            dataGridViewBedingung.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewBedingung.ColumnHeadersVisible = false;
+            dataGridViewCellStyle24.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = SystemColors.Window;
+            dataGridViewCellStyle24.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle24.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle24.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle24.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle24.WrapMode = DataGridViewTriState.False;
+            dataGridViewBedingung.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewBedingung.GridColor = SystemColors.Control;
+            dataGridViewBedingung.Location = new Point(143, 184);
+            dataGridViewBedingung.Name = "dataGridViewBedingung";
+            dataGridViewBedingung.RowHeadersVisible = false;
+            dataGridViewBedingung.RowTemplate.Height = 20;
+            dataGridViewBedingung.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewBedingung.Size = new Size(185, 62);
+            dataGridViewBedingung.TabIndex = 44;
+            dataGridViewBedingung.KeyDown += DataGridViewBedingung_KeyDown;
+            // 
+            // dataGridViewÄußerer_Einfluss
+            // 
+            dataGridViewÄußerer_Einfluss.AccessibleName = "Äußerer_Einfluss";
+            dataGridViewÄußerer_Einfluss.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewÄußerer_Einfluss.BackgroundColor = SystemColors.Control;
+            dataGridViewCellStyle25.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = SystemColors.Window;
+            dataGridViewCellStyle25.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle25.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle25.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle25.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle25.WrapMode = DataGridViewTriState.True;
+            dataGridViewÄußerer_Einfluss.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewÄußerer_Einfluss.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewÄußerer_Einfluss.ColumnHeadersVisible = false;
+            dataGridViewCellStyle26.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = SystemColors.Window;
+            dataGridViewCellStyle26.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle26.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle26.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle26.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle26.WrapMode = DataGridViewTriState.False;
+            dataGridViewÄußerer_Einfluss.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewÄußerer_Einfluss.GridColor = SystemColors.Control;
+            dataGridViewÄußerer_Einfluss.Location = new Point(143, 67);
+            dataGridViewÄußerer_Einfluss.Name = "dataGridViewÄußerer_Einfluss";
+            dataGridViewÄußerer_Einfluss.RowHeadersVisible = false;
+            dataGridViewÄußerer_Einfluss.RowTemplate.Height = 20;
+            dataGridViewÄußerer_Einfluss.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewÄußerer_Einfluss.Size = new Size(185, 77);
+            dataGridViewÄußerer_Einfluss.TabIndex = 43;
+            dataGridViewÄußerer_Einfluss.KeyDown += DataGridViewÄußerer_Einfluss_KeyDown;
             // 
             // comboBoxOberfläche_Zustand
             // 
@@ -317,150 +779,6 @@
             comboBoxKategorie.TabIndex = 31;
             comboBoxKategorie.TextChanged += ComboBoxKategorie_TextChanged;
             // 
-            // listBoxOberflächeZustand
-            // 
-            listBoxOberflächeZustand.AccessibleName = "Oberfläche_Zustand";
-            listBoxOberflächeZustand.FormattingEnabled = true;
-            listBoxOberflächeZustand.ItemHeight = 15;
-            listBoxOberflächeZustand.Location = new Point(744, 488);
-            listBoxOberflächeZustand.Name = "listBoxOberflächeZustand";
-            listBoxOberflächeZustand.SelectionMode = SelectionMode.MultiSimple;
-            listBoxOberflächeZustand.Size = new Size(187, 79);
-            listBoxOberflächeZustand.TabIndex = 25;
-            listBoxOberflächeZustand.KeyDown += ListBoxOberflächeZustand_KeyDown;
-            // 
-            // listBoxOberflächeForm
-            // 
-            listBoxOberflächeForm.AccessibleName = "Oberfläche_Form";
-            listBoxOberflächeForm.FormattingEnabled = true;
-            listBoxOberflächeForm.ItemHeight = 15;
-            listBoxOberflächeForm.Location = new Point(746, 385);
-            listBoxOberflächeForm.Name = "listBoxOberflächeForm";
-            listBoxOberflächeForm.SelectionMode = SelectionMode.MultiSimple;
-            listBoxOberflächeForm.Size = new Size(185, 64);
-            listBoxOberflächeForm.TabIndex = 26;
-            listBoxOberflächeForm.KeyDown += ListBoxOberflächeForm_KeyDown;
-            // 
-            // listBoxOberflächeFarbe
-            // 
-            listBoxOberflächeFarbe.AccessibleName = "Oberfläche_Farbe";
-            listBoxOberflächeFarbe.FormattingEnabled = true;
-            listBoxOberflächeFarbe.ItemHeight = 15;
-            listBoxOberflächeFarbe.Location = new Point(744, 283);
-            listBoxOberflächeFarbe.Name = "listBoxOberflächeFarbe";
-            listBoxOberflächeFarbe.SelectionMode = SelectionMode.MultiSimple;
-            listBoxOberflächeFarbe.Size = new Size(188, 64);
-            listBoxOberflächeFarbe.TabIndex = 27;
-            listBoxOberflächeFarbe.KeyDown += ListBoxOberflächeFarbe_KeyDown;
-            // 
-            // listBoxOberflächeBeschaffenheit
-            // 
-            listBoxOberflächeBeschaffenheit.AccessibleName = "Oberfläche_Beschaffenheit";
-            listBoxOberflächeBeschaffenheit.FormattingEnabled = true;
-            listBoxOberflächeBeschaffenheit.ItemHeight = 15;
-            listBoxOberflächeBeschaffenheit.Location = new Point(744, 182);
-            listBoxOberflächeBeschaffenheit.Name = "listBoxOberflächeBeschaffenheit";
-            listBoxOberflächeBeschaffenheit.SelectionMode = SelectionMode.MultiSimple;
-            listBoxOberflächeBeschaffenheit.Size = new Size(187, 64);
-            listBoxOberflächeBeschaffenheit.TabIndex = 28;
-            listBoxOberflächeBeschaffenheit.KeyDown += ListBoxOberflächeBeschaffenheit_KeyDown;
-            // 
-            // listBoxOberfläche
-            // 
-            listBoxOberfläche.AccessibleName = "Oberfläche";
-            listBoxOberfläche.FormattingEnabled = true;
-            listBoxOberfläche.ItemHeight = 15;
-            listBoxOberfläche.Location = new Point(745, 65);
-            listBoxOberfläche.Name = "listBoxOberfläche";
-            listBoxOberfläche.SelectionMode = SelectionMode.MultiSimple;
-            listBoxOberfläche.Size = new Size(187, 79);
-            listBoxOberfläche.TabIndex = 25;
-            listBoxOberfläche.KeyDown += ListBoxOberfläche_KeyDown;
-            // 
-            // listBoxVeredelung
-            // 
-            listBoxVeredelung.AccessibleName = "Veredelung";
-            listBoxVeredelung.FormattingEnabled = true;
-            listBoxVeredelung.ItemHeight = 15;
-            listBoxVeredelung.Location = new Point(443, 182);
-            listBoxVeredelung.Name = "listBoxVeredelung";
-            listBoxVeredelung.SelectionMode = SelectionMode.MultiSimple;
-            listBoxVeredelung.Size = new Size(185, 64);
-            listBoxVeredelung.TabIndex = 30;
-            listBoxVeredelung.KeyDown += ListBoxVeredelung_KeyDown;
-            // 
-            // listBoxKlebstoff
-            // 
-            listBoxKlebstoff.AccessibleName = "Klebstoff";
-            listBoxKlebstoff.FormattingEnabled = true;
-            listBoxKlebstoff.ItemHeight = 15;
-            listBoxKlebstoff.Location = new Point(443, 65);
-            listBoxKlebstoff.Name = "listBoxKlebstoff";
-            listBoxKlebstoff.SelectionMode = SelectionMode.MultiSimple;
-            listBoxKlebstoff.Size = new Size(185, 79);
-            listBoxKlebstoff.TabIndex = 29;
-            listBoxKlebstoff.KeyDown += ListBoxKlebstoff_KeyDown;
-            // 
-            // listBoxKategorien
-            // 
-            listBoxKategorien.AccessibleName = "Kategorie";
-            listBoxKategorien.FormattingEnabled = true;
-            listBoxKategorien.ItemHeight = 15;
-            listBoxKategorien.Location = new Point(143, 488);
-            listBoxKategorien.Name = "listBoxKategorien";
-            listBoxKategorien.SelectionMode = SelectionMode.MultiSimple;
-            listBoxKategorien.Size = new Size(185, 79);
-            listBoxKategorien.TabIndex = 28;
-            listBoxKategorien.KeyDown += ListBoxKategorien_KeyDown;
-            // 
-            // listBoxDruckverfahren
-            // 
-            listBoxDruckverfahren.AccessibleName = "Druckverfahren";
-            listBoxDruckverfahren.FormattingEnabled = true;
-            listBoxDruckverfahren.ItemHeight = 15;
-            listBoxDruckverfahren.Location = new Point(143, 385);
-            listBoxDruckverfahren.Name = "listBoxDruckverfahren";
-            listBoxDruckverfahren.SelectionMode = SelectionMode.MultiSimple;
-            listBoxDruckverfahren.Size = new Size(185, 64);
-            listBoxDruckverfahren.TabIndex = 27;
-            listBoxDruckverfahren.KeyDown += ListBoxDruckverfahren_KeyDown;
-            // 
-            // listBoxBesonderheiten
-            // 
-            listBoxBesonderheiten.AccessibleName = "Besonderheit";
-            listBoxBesonderheiten.FormattingEnabled = true;
-            listBoxBesonderheiten.ItemHeight = 15;
-            listBoxBesonderheiten.Location = new Point(143, 283);
-            listBoxBesonderheiten.Name = "listBoxBesonderheiten";
-            listBoxBesonderheiten.SelectionMode = SelectionMode.MultiSimple;
-            listBoxBesonderheiten.Size = new Size(185, 64);
-            listBoxBesonderheiten.TabIndex = 26;
-            listBoxBesonderheiten.KeyDown += ListBoxBesonderheiten_KeyDown;
-            // 
-            // listBoxBedingungen
-            // 
-            listBoxBedingungen.AccessibleName = "Bedingung";
-            listBoxBedingungen.FormattingEnabled = true;
-            listBoxBedingungen.ItemHeight = 15;
-            listBoxBedingungen.Location = new Point(143, 182);
-            listBoxBedingungen.Name = "listBoxBedingungen";
-            listBoxBedingungen.SelectionMode = SelectionMode.MultiSimple;
-            listBoxBedingungen.Size = new Size(185, 64);
-            listBoxBedingungen.TabIndex = 25;
-            listBoxBedingungen.KeyDown += ListBoxBedingungen_KeyDown;
-            // 
-            // listBoxÄußereEinflüsse
-            // 
-            listBoxÄußereEinflüsse.AccessibleName = "Äußerer_Einfluss";
-            listBoxÄußereEinflüsse.FormattingEnabled = true;
-            listBoxÄußereEinflüsse.ItemHeight = 15;
-            listBoxÄußereEinflüsse.Location = new Point(143, 65);
-            listBoxÄußereEinflüsse.Name = "listBoxÄußereEinflüsse";
-            listBoxÄußereEinflüsse.SelectionMode = SelectionMode.MultiSimple;
-            listBoxÄußereEinflüsse.Size = new Size(185, 79);
-            listBoxÄußereEinflüsse.TabIndex = 25;
-            listBoxÄußereEinflüsse.KeyDown += ListBoxÄußereEinflüsse_KeyDown;
-            // 
             // labelOberfläche
             // 
             labelOberfläche.AutoSize = true;
@@ -529,12 +847,24 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(groupBoxEmpfehlungen);
-            splitContainer1.Size = new Size(1019, 854);
-            splitContainer1.SplitterDistance = 259;
+            splitContainer1.Size = new Size(1208, 854);
+            splitContainer1.SplitterDistance = 278;
             splitContainer1.TabIndex = 1;
             // 
             // groupBoxInformationen
             // 
+            groupBoxInformationen.Controls.Add(textBoxNachhaltigkeit);
+            groupBoxInformationen.Controls.Add(textBoxKlebstoffeigenschaften);
+            groupBoxInformationen.Controls.Add(textBoxTrägerpapier);
+            groupBoxInformationen.Controls.Add(textBoxLagerbedingungen);
+            groupBoxInformationen.Controls.Add(textBoxTrägerpapiereigenschaften);
+            groupBoxInformationen.Controls.Add(textBoxMaterialeigenschaften);
+            groupBoxInformationen.Controls.Add(labelNachhaltigkeit);
+            groupBoxInformationen.Controls.Add(labelLagerbedingungen);
+            groupBoxInformationen.Controls.Add(labelTrägerpapiereigenschaften);
+            groupBoxInformationen.Controls.Add(labelTrägerpapier);
+            groupBoxInformationen.Controls.Add(labelKlebstoffeigenschaften);
+            groupBoxInformationen.Controls.Add(labelMaterialeigenschaften);
             groupBoxInformationen.Controls.Add(labelInaktiv);
             groupBoxInformationen.Controls.Add(comboBoxArtikelnummer);
             groupBoxInformationen.Controls.Add(textBoxFarbe);
@@ -556,10 +886,126 @@
             groupBoxInformationen.Dock = DockStyle.Fill;
             groupBoxInformationen.Location = new Point(0, 0);
             groupBoxInformationen.Name = "groupBoxInformationen";
-            groupBoxInformationen.Size = new Size(1019, 259);
+            groupBoxInformationen.Size = new Size(1208, 278);
             groupBoxInformationen.TabIndex = 0;
             groupBoxInformationen.TabStop = false;
             groupBoxInformationen.Text = "Allgemeine Informationen";
+            // 
+            // textBoxNachhaltigkeit
+            // 
+            textBoxNachhaltigkeit.AccessibleName = "Nachhaltigkeit";
+            textBoxNachhaltigkeit.Location = new Point(530, 243);
+            textBoxNachhaltigkeit.Name = "textBoxNachhaltigkeit";
+            textBoxNachhaltigkeit.ReadOnly = true;
+            textBoxNachhaltigkeit.ScrollBars = ScrollBars.Horizontal;
+            textBoxNachhaltigkeit.Size = new Size(617, 23);
+            textBoxNachhaltigkeit.TabIndex = 43;
+            // 
+            // textBoxKlebstoffeigenschaften
+            // 
+            textBoxKlebstoffeigenschaften.AccessibleName = "Klebstoffeigenschaften";
+            textBoxKlebstoffeigenschaften.Location = new Point(530, 107);
+            textBoxKlebstoffeigenschaften.Multiline = true;
+            textBoxKlebstoffeigenschaften.Name = "textBoxKlebstoffeigenschaften";
+            textBoxKlebstoffeigenschaften.ReadOnly = true;
+            textBoxKlebstoffeigenschaften.ScrollBars = ScrollBars.Vertical;
+            textBoxKlebstoffeigenschaften.Size = new Size(617, 44);
+            textBoxKlebstoffeigenschaften.TabIndex = 42;
+            // 
+            // textBoxTrägerpapier
+            // 
+            textBoxTrägerpapier.AccessibleName = "Trägerpapier";
+            textBoxTrägerpapier.Location = new Point(530, 157);
+            textBoxTrägerpapier.Name = "textBoxTrägerpapier";
+            textBoxTrägerpapier.ReadOnly = true;
+            textBoxTrägerpapier.ScrollBars = ScrollBars.Horizontal;
+            textBoxTrägerpapier.Size = new Size(617, 23);
+            textBoxTrägerpapier.TabIndex = 41;
+            // 
+            // textBoxLagerbedingungen
+            // 
+            textBoxLagerbedingungen.AccessibleName = "Lagerbedingungen";
+            textBoxLagerbedingungen.Location = new Point(530, 215);
+            textBoxLagerbedingungen.Name = "textBoxLagerbedingungen";
+            textBoxLagerbedingungen.ReadOnly = true;
+            textBoxLagerbedingungen.ScrollBars = ScrollBars.Horizontal;
+            textBoxLagerbedingungen.Size = new Size(617, 23);
+            textBoxLagerbedingungen.TabIndex = 40;
+            // 
+            // textBoxTrägerpapiereigenschaften
+            // 
+            textBoxTrägerpapiereigenschaften.AccessibleName = "Trägerpapiereigenschaften";
+            textBoxTrägerpapiereigenschaften.Location = new Point(530, 186);
+            textBoxTrägerpapiereigenschaften.Name = "textBoxTrägerpapiereigenschaften";
+            textBoxTrägerpapiereigenschaften.ReadOnly = true;
+            textBoxTrägerpapiereigenschaften.ScrollBars = ScrollBars.Horizontal;
+            textBoxTrägerpapiereigenschaften.Size = new Size(617, 23);
+            textBoxTrägerpapiereigenschaften.TabIndex = 39;
+            // 
+            // textBoxMaterialeigenschaften
+            // 
+            textBoxMaterialeigenschaften.AccessibleName = "Materialeigenschaften";
+            textBoxMaterialeigenschaften.Location = new Point(530, 59);
+            textBoxMaterialeigenschaften.Multiline = true;
+            textBoxMaterialeigenschaften.Name = "textBoxMaterialeigenschaften";
+            textBoxMaterialeigenschaften.ReadOnly = true;
+            textBoxMaterialeigenschaften.ScrollBars = ScrollBars.Vertical;
+            textBoxMaterialeigenschaften.Size = new Size(617, 42);
+            textBoxMaterialeigenschaften.TabIndex = 38;
+            // 
+            // labelNachhaltigkeit
+            // 
+            labelNachhaltigkeit.AutoSize = true;
+            labelNachhaltigkeit.Location = new Point(364, 251);
+            labelNachhaltigkeit.Name = "labelNachhaltigkeit";
+            labelNachhaltigkeit.Size = new Size(84, 15);
+            labelNachhaltigkeit.TabIndex = 37;
+            labelNachhaltigkeit.Text = "Nachhaltigkeit";
+            // 
+            // labelLagerbedingungen
+            // 
+            labelLagerbedingungen.AutoSize = true;
+            labelLagerbedingungen.Location = new Point(364, 219);
+            labelLagerbedingungen.Name = "labelLagerbedingungen";
+            labelLagerbedingungen.Size = new Size(107, 15);
+            labelLagerbedingungen.TabIndex = 36;
+            labelLagerbedingungen.Text = "Lagerbedingungen";
+            // 
+            // labelTrägerpapiereigenschaften
+            // 
+            labelTrägerpapiereigenschaften.AutoSize = true;
+            labelTrägerpapiereigenschaften.Location = new Point(364, 194);
+            labelTrägerpapiereigenschaften.Name = "labelTrägerpapiereigenschaften";
+            labelTrägerpapiereigenschaften.Size = new Size(146, 15);
+            labelTrägerpapiereigenschaften.TabIndex = 35;
+            labelTrägerpapiereigenschaften.Text = "Trägerpapiereigenschaften";
+            // 
+            // labelTrägerpapier
+            // 
+            labelTrägerpapier.AutoSize = true;
+            labelTrägerpapier.Location = new Point(364, 165);
+            labelTrägerpapier.Name = "labelTrägerpapier";
+            labelTrägerpapier.Size = new Size(72, 15);
+            labelTrägerpapier.TabIndex = 34;
+            labelTrägerpapier.Text = "Trägerpapier";
+            // 
+            // labelKlebstoffeigenschaften
+            // 
+            labelKlebstoffeigenschaften.AutoSize = true;
+            labelKlebstoffeigenschaften.Location = new Point(364, 115);
+            labelKlebstoffeigenschaften.Name = "labelKlebstoffeigenschaften";
+            labelKlebstoffeigenschaften.Size = new Size(128, 15);
+            labelKlebstoffeigenschaften.TabIndex = 33;
+            labelKlebstoffeigenschaften.Text = "Klebstoffeigenschaften";
+            // 
+            // labelMaterialeigenschaften
+            // 
+            labelMaterialeigenschaften.AutoSize = true;
+            labelMaterialeigenschaften.Location = new Point(364, 62);
+            labelMaterialeigenschaften.Name = "labelMaterialeigenschaften";
+            labelMaterialeigenschaften.Size = new Size(124, 15);
+            labelMaterialeigenschaften.TabIndex = 32;
+            labelMaterialeigenschaften.Text = "Materialeigenschaften";
             // 
             // labelInaktiv
             // 
@@ -582,7 +1028,7 @@
             // 
             // textBoxFarbe
             // 
-            textBoxFarbe.Location = new Point(478, 54);
+            textBoxFarbe.Location = new Point(132, 181);
             textBoxFarbe.Name = "textBoxFarbe";
             textBoxFarbe.ReadOnly = true;
             textBoxFarbe.Size = new Size(196, 23);
@@ -591,7 +1037,7 @@
             // labelFarbe
             // 
             labelFarbe.AutoSize = true;
-            labelFarbe.Location = new Point(359, 61);
+            labelFarbe.Location = new Point(13, 188);
             labelFarbe.Name = "labelFarbe";
             labelFarbe.Size = new Size(36, 15);
             labelFarbe.TabIndex = 27;
@@ -621,7 +1067,7 @@
             buttonMaterialübersichtSpeichern.FlatStyle = FlatStyle.Flat;
             buttonMaterialübersichtSpeichern.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             buttonMaterialübersichtSpeichern.ForeColor = SystemColors.Control;
-            buttonMaterialübersichtSpeichern.Location = new Point(809, 170);
+            buttonMaterialübersichtSpeichern.Location = new Point(1097, 14);
             buttonMaterialübersichtSpeichern.Name = "buttonMaterialübersichtSpeichern";
             buttonMaterialübersichtSpeichern.Size = new Size(105, 36);
             buttonMaterialübersichtSpeichern.TabIndex = 24;
@@ -631,7 +1077,7 @@
             // 
             // textBoxLieferzeit
             // 
-            textBoxLieferzeit.Location = new Point(478, 118);
+            textBoxLieferzeit.Location = new Point(132, 245);
             textBoxLieferzeit.Name = "textBoxLieferzeit";
             textBoxLieferzeit.ReadOnly = true;
             textBoxLieferzeit.Size = new Size(196, 23);
@@ -639,7 +1085,7 @@
             // 
             // textBoxPreis
             // 
-            textBoxPreis.Location = new Point(478, 89);
+            textBoxPreis.Location = new Point(132, 216);
             textBoxPreis.Name = "textBoxPreis";
             textBoxPreis.ReadOnly = true;
             textBoxPreis.Size = new Size(196, 23);
@@ -647,10 +1093,10 @@
             // 
             // textBoxBemerkung
             // 
-            textBoxBemerkung.Location = new Point(132, 155);
+            textBoxBemerkung.Location = new Point(132, 149);
             textBoxBemerkung.Multiline = true;
             textBoxBemerkung.Name = "textBoxBemerkung";
-            textBoxBemerkung.Size = new Size(196, 51);
+            textBoxBemerkung.Size = new Size(196, 24);
             textBoxBemerkung.TabIndex = 21;
             textBoxBemerkung.Leave += TextBoxBemerkung_Leave;
             // 
@@ -674,7 +1120,7 @@
             // labelLieferzeit
             // 
             labelLieferzeit.AutoSize = true;
-            labelLieferzeit.Location = new Point(359, 124);
+            labelLieferzeit.Location = new Point(13, 251);
             labelLieferzeit.Name = "labelLieferzeit";
             labelLieferzeit.Size = new Size(101, 15);
             labelLieferzeit.TabIndex = 17;
@@ -701,7 +1147,7 @@
             // labelPreis
             // 
             labelPreis.AutoSize = true;
-            labelPreis.Location = new Point(359, 96);
+            labelPreis.Location = new Point(13, 223);
             labelPreis.Name = "labelPreis";
             labelPreis.Size = new Size(54, 15);
             labelPreis.TabIndex = 14;
@@ -735,9 +1181,21 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(splitContainer1);
             Name = "Materialübersicht";
-            Size = new Size(1019, 854);
+            Size = new Size(1208, 854);
             groupBoxEmpfehlungen.ResumeLayout(false);
             groupBoxEmpfehlungen.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewOberfläche_Zustand).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewOberfläche_Form).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewOberfläche_Farbe).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewOberfläche_Beschaffenheit).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewOberfläche).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewVeredelung).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewKlebstoff).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewKategorie).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDruckverfahren).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewBesonderheit).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewBedingung).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewÄußerer_Einfluss).EndInit();
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
@@ -776,18 +1234,9 @@
         private Label labelArtikelnummer;
         private ErrorProvider errorProviderMaterialübersicht;
         private Button buttonMaterialübersichtSpeichern;
-        private ListBox listBoxÄußereEinflüsse;
         private ListBox listBoxBedingungen;
-        private ListBox listBoxBesonderheiten;
-        private ListBox listBoxDruckverfahren;
-        private ListBox listBoxKategorien;
-        private ListBox listBoxKlebstoff;
         private ListBox listBoxVeredelung;
-        private ListBox listBoxOberfläche;
-        private ListBox listBoxOberflächeBeschaffenheit;
-        private ListBox listBoxOberflächeFarbe;
         private ListBox listBoxOberflächeForm;
-        private ListBox listBoxOberflächeZustand;
         private TextBox textBoxStatus;
         private Label labelStatus;
         private TextBox textBoxFarbe;
@@ -806,5 +1255,29 @@
         private ComboBox comboBoxVeredelung;
         private ComboBox comboBoxOberfläche_Zustand;
         private Label labelInaktiv;
+        private DataGridView dataGridViewÄußerer_Einfluss;
+        private DataGridView dataGridViewBedingung;
+        private DataGridView dataGridViewBesonderheit;
+        private DataGridView dataGridViewDruckverfahren;
+        private DataGridView dataGridViewKategorie;
+        private DataGridView dataGridViewKlebstoff;
+        private DataGridView dataGridViewVeredelung;
+        private DataGridView dataGridViewOberfläche;
+        private DataGridView dataGridViewOberfläche_Beschaffenheit;
+        private DataGridView dataGridViewOberfläche_Farbe;
+        private DataGridView dataGridViewOberfläche_Form;
+        private DataGridView dataGridViewOberfläche_Zustand;
+        private Label labelNachhaltigkeit;
+        private Label labelLagerbedingungen;
+        private Label labelTrägerpapiereigenschaften;
+        private Label labelTrägerpapier;
+        private Label labelKlebstoffeigenschaften;
+        private Label labelMaterialeigenschaften;
+        private TextBox textBoxNachhaltigkeit;
+        private TextBox textBoxKlebstoffeigenschaften;
+        private TextBox textBoxTrägerpapier;
+        private TextBox textBoxLagerbedingungen;
+        private TextBox textBoxTrägerpapiereigenschaften;
+        private TextBox textBoxMaterialeigenschaften;
     }
 }

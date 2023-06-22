@@ -62,7 +62,7 @@ namespace Materialempfehlung
             var selectedItems = listBoxEmpfehlungHinzufügenAuswahl.SelectedItems.Cast<string>().ToList();
             foreach (var item in selectedItems)
             {
-                var result = _materialRepository.AddRelation(_preisartikel, bereich, item);
+                var result = _materialRepository?.AddRelation(_preisartikel, bereich, item) ?? false;
                 if (!result)
                 {
                     errorProviderEmpfehlungHinzufügen.SetError(textBoxEmpfehlungHinzufügenBereich, "Verbindung konnte nicht hinzugefügt werden. Bitte erneut probieren");

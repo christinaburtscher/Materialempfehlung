@@ -2,8 +2,8 @@
 {
     public class Empfehlung
     {
-        public string Bereich  { get; set; }
+        public string? Bereich  { get; set; }
 
-        public string Inhalt { get; set; }
+        public string? Inhalt { get; set; }
     }
 }

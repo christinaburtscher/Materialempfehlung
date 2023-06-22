@@ -8,7 +8,7 @@ namespace Materialempfehlung.UserControls
     {
         private readonly EmpfehlungenRepository _empfehlungenRepository = new();
         private readonly MaterialRepository _materialRepository = new();
-        private List<Empfehlung> EmpfehlungenSuche = new();
+        private readonly List<Empfehlung> EmpfehlungenSuche = new();
         private bool _initialLoading = false;
 
         public MaterialSuche()
@@ -32,6 +32,10 @@ namespace Materialempfehlung.UserControls
             {
                 if (gesamteEmpfehlungen.TryGetValue(key, out var gesamteInhalte))
                 {
+                    var falscheWerte = gesamteInhalte.Where(o => o.Equals("---")).ToList();
+                    gesamteInhalte = gesamteInhalte.Except(falscheWerte).ToList();
+                    gesamteInhalte.Insert(0, "---");
+
                     //get needed combobox
                     var neededCombobox = groupBoxInhalte.Controls.OfType<ComboBox>().Where(o => o.AccessibleName == key).FirstOrDefault();
                     if (neededCombobox != null)
@@ -55,7 +59,7 @@ namespace Materialempfehlung.UserControls
             };
 
             var result = EmpfehlungenSuche.Where(o => o.Bereich == empfehlung.Bereich && o.Inhalt == empfehlung.Inhalt).FirstOrDefault();
-            if (result == null)
+            if (result == null && !empfehlung.Inhalt.Equals("---"))
             {
                 EmpfehlungenSuche.Add(empfehlung);
                 dataGridViewSuchkriterien.DataSource = null;
@@ -65,17 +69,35 @@ namespace Materialempfehlung.UserControls
 
         private void ButtonSuche_Click(object sender, EventArgs e)
         {
-            //ToDo testing and 
             //Material suchen, welches alle Kriterien erfüllt
             var result = new List<int>();
 
             foreach (var empfehlung in EmpfehlungenSuche)
             {
-                var preisartikel = _materialRepository.PreisartikelFürEmpfehlungen(empfehlung.Bereich, empfehlung.Inhalt);
-                result = result.Intersect(preisartikel).ToList();
+                if (!string.IsNullOrEmpty(empfehlung.Bereich) && !string.IsNullOrEmpty(empfehlung.Inhalt))
+                {
+                    var preisartikel = _materialRepository.PreisartikelFürEmpfehlungen(empfehlung.Bereich, empfehlung.Inhalt);
+                    if (result.Count > 0)
+                    {
+                        result = result.Intersect(preisartikel).ToList();
+                    }
+                    else
+                    {
+                        result = preisartikel;
+                    }
+                }
             }
 
             var materialien = _materialRepository.GetMaterialInformationen(result);
+            if (materialien == null)
+            {
+                MessageBox.Show("Materialempfehlungen konnten nicht geladen werden", "Fehler", MessageBoxButtons.OK);
+                return;
+            }
+            else
+            {
+                dataGridViewMaterialübersicht.DataSource = materialien;
+            }
         }
 
         private void ComboBoxÄußererEinfluss_TextChanged(object sender, EventArgs e)
@@ -171,6 +193,19 @@ namespace Materialempfehlung.UserControls
             if (!_initialLoading)
             {
                 EmpfehlungAuswahlHinzufügen(comboBoxOberfläche_Zustand);
+            }
+        }
+
+        private void DataGridViewSuchkriterien_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                if (dataGridViewSuchkriterien.SelectedRows[0].DataBoundItem is Empfehlung selectedItem)
+                {
+                    EmpfehlungenSuche.Remove(selectedItem);
+                    dataGridViewSuchkriterien.DataSource = null;
+                    dataGridViewSuchkriterien.DataSource = EmpfehlungenSuche;
+                }
             }
         }
     }

@@ -1,7 +1,6 @@
 ﻿using Materialempfehlung.Models;
 using Materialempfehlung.Repository;
-using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
-using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
 namespace Materialempfehlung
 {
@@ -9,7 +8,7 @@ namespace Materialempfehlung
     {
         private readonly MaterialRepository _materialRepository;
         private readonly EmpfehlungenRepository _empfehlungenRepository;
-        private ListBox _selectedListBox = new();
+        private DataGridView _selectedDataGridView = new();
         private bool _initialLoading = false;
 
         public Materialübersicht()
@@ -17,6 +16,8 @@ namespace Materialempfehlung
             InitializeComponent();
             _materialRepository = new MaterialRepository();
             _empfehlungenRepository = new EmpfehlungenRepository();
+
+            labelInaktiv.Visible = false;
         }
 
         public void LoadMaterial(List<MaterialVorschlag> vorschläge)
@@ -83,58 +84,36 @@ namespace Materialempfehlung
 
         private void HinzufügenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var items = _selectedListBox.Items.Cast<string>().ToList();
+            var items = new List<string>();
+            foreach (DataGridViewRow row in _selectedDataGridView.Rows)
+            {
+                var test = row.Cells[0].Value.ToString();
+                if (!string.IsNullOrEmpty(test))
+                {
+                    items.Add(test);
+                }
+            }
+
             if (comboBoxArtikelnummer.SelectedItem is MaterialVorschlag selectedItem)
             {
                 var materialExistiert = _materialRepository.MaterialExistiert(selectedItem.Preisartikel);
                 if (!materialExistiert)
                 {
                     buttonMaterialübersichtSpeichern.Visible = true;
-                    errorProviderMaterialübersicht.SetError(_selectedListBox, "Material muss zuerst gespeichert werden");
+                    errorProviderMaterialübersicht.SetError(_selectedDataGridView, "Material muss zuerst gespeichert werden");
                     return;
                 }
 
-                var empfehlungHinzufügen = new EmpfehlungHinzufügen(selectedItem, _selectedListBox.AccessibleName, items);
+                var empfehlungHinzufügen = new EmpfehlungHinzufügen(selectedItem, _selectedDataGridView.AccessibleName, items);
                 var result = empfehlungHinzufügen.ShowDialog();
                 if (result == DialogResult.OK)
                 {
 
                     //neue Werte in Listbox anzeigen
-                    var empfehlungen = _materialRepository.GetByBereich(selectedItem.Preisartikel, _selectedListBox.AccessibleName);
-                    _selectedListBox.DataSource = null;
-                    _selectedListBox.DataSource = empfehlungen;
+                    var empfehlungen = _materialRepository.GetByBereich(selectedItem.Preisartikel, _selectedDataGridView.AccessibleName);
+                    _selectedDataGridView.DataSource = null;
+                    _selectedDataGridView.DataSource = empfehlungen.Select(o => new { Value = o }).ToList(); ;
                 }
-            }
-        }
-
-        private void EntfernenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!buttonMaterialübersichtSpeichern.Visible)
-            {
-                errorProviderMaterialübersicht.SetError(_selectedListBox, "Material muss zuerst gespeichert werden");
-                return;
-            }
-
-            var listBoxName = _selectedListBox.AccessibleName;
-            var selectedRelation = (string)_selectedListBox.SelectedItem;
-            if (string.IsNullOrEmpty(selectedRelation))
-            {
-                errorProviderMaterialübersicht.SetError(_selectedListBox, "Kein Inhalt ausgewählt");
-                return;
-            }
-
-            if (comboBoxArtikelnummer.SelectedItem is MaterialVorschlag selectedItem)
-            {
-                var deleteResult = _materialRepository.RemoveRelation(selectedItem.Preisartikel, listBoxName, selectedRelation);
-                if (!deleteResult)
-                {
-                    errorProviderMaterialübersicht.SetError(_selectedListBox, "Inhalt konnte nicht entfernt werden. Bitte nochmal probieren");
-                }
-            }
-            else
-            {
-                errorProviderMaterialübersicht.SetError(comboBoxArtikelnummer, "Keine Artiklenummer ausgewählt");
-                return;
             }
         }
 
@@ -147,6 +126,12 @@ namespace Materialempfehlung
             textBoxBemerkung.Text = material.Bemerkung;
             textBoxStatus.Text = material.Status;
             textBoxFarbe.Text = material.Farbe;
+            textBoxMaterialeigenschaften.Text = material.Materialeigenschaften;
+            textBoxKlebstoffeigenschaften.Text = material.Klebstoffeigenschaften;
+            textBoxTrägerpapier.Text = material.Trägerpapier;
+            textBoxTrägerpapiereigenschaften.Text = material.Trägerpapiereigenschaften;
+            textBoxLagerbedingungen.Text = material.Lagerbedingungen;
+            textBoxNachhaltigkeit.Text = material.Nachhaltigkeit_Ökologie;
         }
 
         private void ComboBoxArtikelnummer_Leave(object sender, EventArgs e)
@@ -160,12 +145,11 @@ namespace Materialempfehlung
                     {
                         labelInaktiv.Visible = false;
                         ComboboxSichtbarkeit(true);
-                        ListboxAktiv(true);
+                        DatagridAktiv(true);
                         FelderBefüllen(material);
 
                         var relations = _materialRepository.EmpfehlungenFürPreisartikel(selectedVorschlag.Preisartikel);
 
-                        // Empfehlung für Klebstoff zur Ansicht hinzufügen
                         relations.Add(new Material2Empfehlung
                         {
                             Artikelnummer_Bezeichnung = material.Artikelnummer_Bezeichnung,
@@ -182,26 +166,27 @@ namespace Materialempfehlung
                         }
 
                         _initialLoading = true;
-                        var listboxes = groupBoxEmpfehlungen.Controls.OfType<ListBox>().Select(o => o.AccessibilityObject).Where(w => !string.IsNullOrEmpty(w.Name)).Select(v => v.Name);
-                        foreach (var listbox in listboxes)
+                        var datagrids = groupBoxEmpfehlungen.Controls.OfType<DataGridView>().Select(o => o.AccessibilityObject).Where(w => !string.IsNullOrEmpty(w.Name)).Select(v => v.Name);
+                        foreach (var datagrid in datagrids)
                         {
-                            if (!string.IsNullOrEmpty(listbox))
+                            if (!string.IsNullOrEmpty(datagrid))
                             {
                                 // get all matching relations 
-                                var empfehlungen = relations.Where(o => o.Bereich == listbox).Select(v => v.Inhalt).Distinct().ToList();
-                                var neededListbox = groupBoxEmpfehlungen.Controls.OfType<ListBox>().Where(o => o.AccessibleName == listbox).FirstOrDefault();
-                                if (neededListbox != null)
-                                {
-                                    neededListbox.DataSource = null;
-                                    neededListbox.DataSource = empfehlungen;
+                                var empfehlungen = relations.Where(o => o.Bereich == datagrid).Select(v => v.Inhalt).Distinct().ToList();
 
-                                    if (gesamteEmpfehlungen.TryGetValue(neededListbox.AccessibleName, out var gesamteInhalte))
+                                var datagridView = groupBoxEmpfehlungen.Controls.OfType<DataGridView>().Where(o => o.AccessibleName == datagrid).FirstOrDefault();
+                                if (datagridView != null)
+                                {
+                                    datagridView.DataSource = null;
+                                    datagridView.DataSource = empfehlungen.Select(o => new { Value = o }).ToList();
+
+                                    if (gesamteEmpfehlungen.TryGetValue(datagridView.AccessibleName, out var gesamteInhalte))
                                     {
-                                        var bestehendeEmpfehlungen = relations.Where(o => o.Bereich == neededListbox.AccessibleName).Select(v => v.Inhalt).ToList();
+                                        var bestehendeEmpfehlungen = relations.Where(o => o.Bereich == datagridView.AccessibleName).Select(v => v.Inhalt).ToList();
                                         var newDataSource = gesamteInhalte.Except(bestehendeEmpfehlungen).ToList();
 
                                         //get needed combobox
-                                        var neededCombobox = groupBoxEmpfehlungen.Controls.OfType<ComboBox>().Where(o => o.AccessibleName == listbox).FirstOrDefault();
+                                        var neededCombobox = groupBoxEmpfehlungen.Controls.OfType<ComboBox>().Where(o => o.AccessibleName == datagrid).FirstOrDefault();
                                         if (neededCombobox != null)
                                         {
                                             neededCombobox.DataSource = null;
@@ -227,26 +212,26 @@ namespace Materialempfehlung
                     {
                         labelInaktiv.Visible = true;
                         ComboboxSichtbarkeit(false);
-                        ListboxAktiv(false);
+                        DatagridAktiv(false);
                     }
                 }
             }
         }
 
-        private void ListboxAktiv(bool aktiv)
+        private void DatagridAktiv(bool aktiv)
         {
-            listBoxBedingungen.Enabled = aktiv;
-            listBoxBesonderheiten.Enabled = aktiv;
-            listBoxDruckverfahren.Enabled = aktiv;
-            listBoxKategorien.Enabled = aktiv;
-            listBoxKlebstoff.Enabled = aktiv;
-            listBoxOberfläche.Enabled = aktiv;
-            listBoxOberflächeBeschaffenheit.Enabled = aktiv;
-            listBoxOberflächeFarbe.Enabled = aktiv;
-            listBoxOberflächeForm.Enabled = aktiv;
-            listBoxOberflächeZustand.Enabled = aktiv;
-            listBoxVeredelung.Enabled = aktiv;
-            listBoxÄußereEinflüsse.Enabled = aktiv;
+            dataGridViewBedingung.Enabled = aktiv;
+            dataGridViewBesonderheit.Enabled = aktiv;
+            dataGridViewDruckverfahren.Enabled = aktiv;
+            dataGridViewKategorie.Enabled = aktiv;
+            dataGridViewKlebstoff.Enabled = aktiv;
+            dataGridViewOberfläche.Enabled = aktiv;
+            dataGridViewOberfläche_Beschaffenheit.Enabled = aktiv;
+            dataGridViewOberfläche_Farbe.Enabled = aktiv;
+            dataGridViewOberfläche_Form.Enabled = aktiv;
+            dataGridViewOberfläche_Zustand.Enabled = aktiv;
+            dataGridViewVeredelung.Enabled = aktiv;
+            dataGridViewÄußerer_Einfluss.Enabled = aktiv;
         }
 
         private void ComboboxSichtbarkeit(bool sichtbarkeit)
@@ -268,183 +253,205 @@ namespace Materialempfehlung
         private void TextBoxBemerkung_Leave(object sender, EventArgs e)
         {
             var text = textBoxBemerkung.Text;
-            if (text.Length >= 10)
+            if (text.Length >= 3)
             {
                 buttonMaterialübersichtSpeichern.Visible = true;
             }
         }
 
-        private void ListBoxÄußereEinflüsse_KeyDown(object sender, KeyEventArgs e)
+        private void DataGridViewÄußerer_Einfluss_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
             {
-                _selectedListBox = listBoxÄußereEinflüsse;
-                DeleteRelation(_selectedListBox);
+                _selectedDataGridView = dataGridViewÄußerer_Einfluss;
+                DeleteRelation(_selectedDataGridView);
             }
         }
 
-        private void ListBoxBedingungen_KeyDown(object sender, KeyEventArgs e)
+        private void DataGridViewBedingung_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
             {
-                _selectedListBox = listBoxBedingungen;
-                DeleteRelation(_selectedListBox);
+                _selectedDataGridView = dataGridViewBedingung;
+                DeleteRelation(_selectedDataGridView);
             }
         }
 
-        private void ListBoxBesonderheiten_KeyDown(object sender, KeyEventArgs e)
+        private void DataGridViewBesonderheit_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
             {
-                _selectedListBox = listBoxBesonderheiten;
-                DeleteRelation(_selectedListBox);
+                _selectedDataGridView = dataGridViewBesonderheit;
+                DeleteRelation(_selectedDataGridView);
             }
         }
 
-        private void ListBoxDruckverfahren_KeyDown(object sender, KeyEventArgs e)
+        private void DataGridViewDruckverfahren_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
             {
-                _selectedListBox = listBoxDruckverfahren;
-                DeleteRelation(_selectedListBox);
+                _selectedDataGridView = dataGridViewDruckverfahren;
+                DeleteRelation(_selectedDataGridView);
             }
         }
 
-        private void ListBoxKategorien_KeyDown(object sender, KeyEventArgs e)
+        private void DataGridViewKategorie_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
             {
-                _selectedListBox = listBoxKategorien;
-                DeleteRelation(_selectedListBox);
+                _selectedDataGridView = dataGridViewKategorie;
+                DeleteRelation(_selectedDataGridView);
             }
         }
 
-        private void ListBoxKlebstoff_KeyDown(object sender, KeyEventArgs e)
+        private void DataGridViewKlebstoff_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Delete)
+            {
+                _selectedDataGridView = dataGridViewKlebstoff;
+                DeleteRelation(_selectedDataGridView);
+            }
+        }
+
+        private void DataGridViewVeredelung_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
             {
-                _selectedListBox = listBoxKlebstoff;
-                DeleteRelation(_selectedListBox);
+                _selectedDataGridView = dataGridViewVeredelung;
+                DeleteRelation(_selectedDataGridView);
             }
         }
 
-        private void ListBoxVeredelung_KeyDown(object sender, KeyEventArgs e)
+        private void DataGridViewOberfläche_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
             {
-                _selectedListBox = listBoxVeredelung;
-                DeleteRelation(_selectedListBox);
+                _selectedDataGridView = dataGridViewOberfläche;
+                DeleteRelation(_selectedDataGridView);
             }
         }
 
-        private void ListBoxOberfläche_KeyDown(object sender, KeyEventArgs e)
+        private void DataGridViewOberfläche_Beschaffenheit_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
             {
-                _selectedListBox = listBoxOberfläche;
-                DeleteRelation(_selectedListBox);
+                _selectedDataGridView = dataGridViewOberfläche_Beschaffenheit;
+                DeleteRelation(_selectedDataGridView);
             }
         }
 
-        private void ListBoxOberflächeBeschaffenheit_KeyDown(object sender, KeyEventArgs e)
+        private void DataGridViewOberfläche_Farbe_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
             {
-                _selectedListBox = listBoxOberflächeBeschaffenheit;
-                DeleteRelation(_selectedListBox);
+                _selectedDataGridView = dataGridViewOberfläche_Farbe;
+                DeleteRelation(_selectedDataGridView);
             }
         }
 
-        private void ListBoxOberflächeFarbe_KeyDown(object sender, KeyEventArgs e)
+        private void DataGridViewOberfläche_Form_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
             {
-                _selectedListBox = listBoxOberflächeFarbe;
-                DeleteRelation(_selectedListBox);
+                _selectedDataGridView = dataGridViewOberfläche_Form;
+                DeleteRelation(_selectedDataGridView);
             }
         }
 
-        private void ListBoxOberflächeForm_KeyDown(object sender, KeyEventArgs e)
+        private void DataGridViewOberfläche_Zustand_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
             {
-                _selectedListBox = listBoxOberflächeForm;
-                DeleteRelation(_selectedListBox);
+                _selectedDataGridView = dataGridViewOberfläche_Zustand;
+                DeleteRelation(_selectedDataGridView);
             }
         }
 
-        private void ListBoxOberflächeZustand_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Delete)
-            {
-                _selectedListBox = listBoxOberflächeZustand;
-                DeleteRelation(_selectedListBox);
-            }
-        }
-
-        private void DeleteRelation(ListBox selectedListBox)
+        private void DeleteRelation(DataGridView selectedDataGrid)
         {
             if (comboBoxArtikelnummer.SelectedItem is MaterialVorschlag selectedItem)
             {
                 //get selected item
-                var inhalt = selectedListBox.SelectedItems.Cast<string>().ToList();
-                foreach (var item in inhalt)
+                var inhalt = new List<string>();
+                var allRows = new List<string>();
+                foreach (DataGridViewRow row in _selectedDataGridView.Rows)
                 {
-                    if (!string.IsNullOrEmpty(item))
+                    allRows.Add(row.Cells[0].Value.ToString());
+                    if (row.Selected)
                     {
-                        var result = MessageBox.Show($"Soll die Empfehlung '{item}' wirklich gelöscht werden?", "Frage", MessageBoxButtons.YesNo);
-                        if (result == DialogResult.Yes)
+                        var test = row.Cells[0].Value.ToString();
+                        if (!string.IsNullOrEmpty(test))
                         {
-                            //relation löschen
-                            var deleteResult = _materialRepository.EmpfehlungenLöschen(selectedItem.Preisartikel, selectedListBox.AccessibleName, item);
-                            if (!deleteResult)
+                            inhalt.Add(test);
+                            var result = MessageBox.Show($"Soll die Empfehlung '{test}' wirklich gelöscht werden?", "Frage", MessageBoxButtons.YesNo);
+                            if (result == DialogResult.Yes)
                             {
-                                MessageBox.Show("Löschen nicht möglich. Bitte erneut probieren", "Error", MessageBoxButtons.OK);
+                                //relation löschen
+                                var deleteResult = _materialRepository.EmpfehlungenLöschen(selectedItem.Preisartikel, selectedDataGrid.AccessibleName, test);
+                                if (!deleteResult)
+                                {
+                                    MessageBox.Show("Löschen nicht möglich. Bitte erneut probieren", "Error", MessageBoxButtons.OK);
+                                    return;
+                                }
+                            }
+                            else
+                            {
                                 return;
                             }
                         }
                     }
-                    else
-                    {
-                        return;
-                    }
                 }
 
                 //neue Werte in Listbox anzeigen
-                var items = selectedListBox.SelectedItems.Cast<string>().ToList();
-                var newDatasource = items.Except(items).ToList();
-                selectedListBox.DataSource = null;
-                selectedListBox.DataSource = newDatasource;
+                var newDatasource = allRows.Except(inhalt).ToList();
+                selectedDataGrid.DataSource = null;
+                selectedDataGrid.DataSource = newDatasource.Select(o => new { Value = o }).ToList(); ;
+
+                // neue Werte für Combobox laden 
+                var empfehlungen = _empfehlungenRepository.GetAllForOverview(selectedDataGrid.AccessibleName);
+                if (empfehlungen != null)
+                {
+                    if (empfehlungen.TryGetValue(selectedDataGrid.AccessibleName, out var gesamteInhalte))
+                    {
+                        var auswählbareEmpfehlungen = gesamteInhalte.Except(newDatasource).ToList();
+
+                        //get needed combobox
+                        var neededCombobox = groupBoxEmpfehlungen.Controls.OfType<ComboBox>().Where(o => o.AccessibleName == selectedDataGrid.AccessibleName).FirstOrDefault();
+                        if (neededCombobox != null)
+                        {
+                            neededCombobox.DataSource = null;
+                            neededCombobox.DataSource = auswählbareEmpfehlungen;
+                        }
+                    }
+                }
             }
         }
 
         private void AddRelation(ComboBox combobox)
         {
             var inhalt = (string)combobox.SelectedItem;
-            if (string.IsNullOrEmpty(inhalt))
+            if (inhalt != "---" && !string.IsNullOrEmpty(inhalt))
             {
-                errorProviderMaterialübersicht.SetError(combobox, "Ein Inhalt muss ausgewählt werden");
-                return;
-            }
-
-            if (comboBoxArtikelnummer.SelectedItem is MaterialVorschlag selectedItem)
-            {
-                // add relation 
-                var addResult = _materialRepository.AddRelation(selectedItem.Preisartikel, combobox.AccessibleName, inhalt);
-                if (!addResult)
+                if (comboBoxArtikelnummer.SelectedItem is MaterialVorschlag selectedItem)
                 {
-                    MessageBox.Show("Empfehlung konnte nicht hinzugefügt werden", "Fehler", MessageBoxButtons.OK);
-                    return;
-                }
-                else
-                {
-                    //alle relations laden und anzeigen
-                    var empfehlungen = _materialRepository.GetByBereich(selectedItem.Preisartikel, combobox.AccessibleName);
-                    var listBox = groupBoxEmpfehlungen.Controls.OfType<ListBox>().Where(o => o.AccessibleName == combobox.AccessibleName).FirstOrDefault();
-                    if (listBox != null)
+                    // add relation 
+                    var addResult = _materialRepository.AddRelation(selectedItem.Preisartikel, combobox.AccessibleName, inhalt);
+                    if (!addResult)
                     {
-                        listBox.DataSource = null;
-                        listBox.DataSource = empfehlungen;
+                        MessageBox.Show("Empfehlung konnte nicht hinzugefügt werden", "Fehler", MessageBoxButtons.OK);
+                        return;
+                    }
+                    else
+                    {
+                        //alle relations laden und anzeigen
+                        var empfehlungen = _materialRepository.GetByBereich(selectedItem.Preisartikel, combobox.AccessibleName);
+                        var dataGridView = groupBoxEmpfehlungen.Controls.OfType<DataGridView>().Where(o => o.AccessibleName == combobox.AccessibleName).FirstOrDefault();
+                        if (dataGridView != null)
+                        {
+                            dataGridView.DataSource = null;
+                            dataGridView.DataSource = empfehlungen.Select(o => new { Value = o }).ToList(); ;
+                        }
                     }
                 }
             }
@@ -492,10 +499,7 @@ namespace Materialempfehlung
 
         private void ComboBoxKlebstoff_TextChanged(object sender, EventArgs e)
         {
-            if (!_initialLoading)
-            {
-                AddRelation(comboBoxKlebstoff);
-            }
+            AddRelation(comboBoxKlebstoff);
         }
 
         private void ComboBoxVeredelung_TextChanged(object sender, EventArgs e)

@@ -25,7 +25,7 @@ namespace Materialempfehlung.Repository
             var empfehlungen = new Dictionary<string, IList<string>>();
             var resultList = new List<string>();
 
-            using (SqlConnection connection = new(_settings?.TestConnectionString))
+            using (SqlConnection connection = new(_settings?.ProductionCariniConnectionString))
             {
                 connection.Open();
 
@@ -42,6 +42,7 @@ namespace Materialempfehlung.Repository
                     }
                 }
             }
+            resultList.Insert(0, "---");
 
             empfehlungen.Add(bereich, resultList);
             return empfehlungen;
@@ -49,7 +50,7 @@ namespace Materialempfehlung.Repository
 
         public bool Hinzufügen(string bereich, string inhalt, string bemerkung)
         {
-            using (SqlConnection connection = new(_settings?.TestConnectionString))
+            using (SqlConnection connection = new(_settings?.ProductionCariniConnectionString))
             {
                 connection.Open();
               
@@ -97,7 +98,7 @@ namespace Materialempfehlung.Repository
 
         public bool Delete(string bereich, string inhalt)
         {
-            using (SqlConnection connection = new(_settings?.TestConnectionString))
+            using (SqlConnection connection = new(_settings?.ProductionCariniConnectionString))
             {
                 connection.Open();
 
@@ -119,10 +120,10 @@ namespace Materialempfehlung.Repository
 
         public Dictionary<string, List<string>> GetAll()
         {
-            List<Tuple<string, string>> empfehlungen = new List<Tuple<string, string>>();
+            List<Tuple<string, string>> empfehlungen = new();
             var resultList = new List<string>();
 
-            using (SqlConnection connection = new(_settings?.TestConnectionString))
+            using (SqlConnection connection = new(_settings?.ProductionCariniConnectionString))
             {
                 connection.Open();
 
@@ -137,11 +138,12 @@ namespace Materialempfehlung.Repository
                             var inhalt = reader["Inhalt"] as string ?? string.Empty;
 
                             empfehlungen.Add(new Tuple<string, string>(bereich, inhalt));
+                            empfehlungen.Insert(0, new Tuple<string, string>(bereich, "---"));
                         }
                     }
                 }
             }
-
+            
             var gruppierteEmpfehlungen = empfehlungen.GroupBy(o => o.Item1).ToDictionary(key => key.Key, value => value.Select(i => i.Item2).ToList());
             return gruppierteEmpfehlungen;
         }
